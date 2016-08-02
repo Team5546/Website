@@ -1,0 +1,10 @@
+@import 'variables';
+
+@mixin bigHeaders {
+	font-family: $big-stack;
+	text-transform: uppercase;
+}
+
+@mixin smallHeaders {
+	font-family: $small-stack;
+}

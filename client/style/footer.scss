@@ -1,0 +1,22 @@
+@import "variables";
+@import "mixins";
+
+.footer {
+	background-color: $footer-color;
+	text-align: center;
+	height: 200px;
+}
+
+.footer-content {
+	padding-top: 20px;
+	display: inline-block;
+	text-align: center;
+}
+
+.footer-container {
+
+}
+
+.footer {
+	color: #9b9b9b;
+}

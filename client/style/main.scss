@@ -1,0 +1,53 @@
+/* CSS declarations go here */
+@import "variables";
+@import "mixins";
+
+html {
+	background-color: $footer-color;
+}
+
+body {
+	background-color: #e8e8e8;
+}
+
+h1, h2 {
+	@include bigHeaders;
+}
+
+h3, h4, h5, h6 {
+	@include smallHeaders;
+}
+
+p {
+	font-family: $small-stack;
+	font-size: 12pt;
+	margin: 0 0 20px;
+}
+
+.shadow {
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.content {
+	padding-top: 110px;
+	padding-bottom: 40px;
+}
+
+/*Make the sponsor logos fit reasonably in the sponsor page*/
+.sponsor {
+	max-height: 300px;
+	max-width: 400px;
+}
+
+/*Add more spacing between sponsor sections*/
+.sponsor-container {
+	padding: 25px 0;
+}
+
+.sponsors-left {
+	padding-left: 0;
+}
+
+.sponsors-right {
+	padding-right: 0;
+}

@@ -1,0 +1,94 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+// Intro title text
+.title-text {
+	color: black;
+	background-color: white;
+	font-family: "CooperHewitt Bold", "Franklin Gothic Medium", "Franklin Gothic", Arial, sans-serif;
+	font-style: italic;
+	text-transform: uppercase;
+	font-size: 75px;
+	padding: 10px 15px;
+	position: relative;
+}
+
+// Format the second line of the intro text to be closer together
+.title-text:last-of-type {
+	margin-top: 10px;
+}
+
+.title-text-container {
+	bottom: 100px;
+	position: absolute;
+}
+
+.title-text-container div h1 {
+	float: left;
+}
+
+.fit-width {
+	padding: 0 10%;
+}
+
+.intro-container {
+	overflow: hidden;
+	position: relative;
+	height: 100vh;
+	background-color: rgb(50, 50, 50);
+}
+
+// Make intro video scale and cover page
+.intro-video {
+	height: 100%;
+	width: 177.77777778vh; /* 100 * 16 / 9 */
+	min-width: 100%;
+	min-height: 56.25vw; /* 100 * 9 / 16 */
+	position: absolute;
+	left: 50%; /* % of surrounding element */
+	top: 50%;
+	transform: translate(-50%, -50%); /* % of current element */
+
+	filter: blur(8px) brightness(0.7);
+	-webkit-filter: blur(8px) brightness(0.7);
+}
+
+.content-home {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.home .navbar-maximized {
+	transition: $nav-transition;
+	background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.home .content {
+	padding-top: 25px;
+}
+
+@media (max-width: 767px) {
+	.intro-container {
+		background: url('/res/bg.jpg') no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.intro-video {
+		display: none;
+	}
+
+	.title-text {
+		font-size: 36px;
+	}
+
+	.title-text-container div h1 {
+		margin-right: 10%;
+	}
+
+	.title-text-container {
+		bottom: 50px;
+	}
+}

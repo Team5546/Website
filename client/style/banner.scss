@@ -1,0 +1,45 @@
+@import "variables";
+@import "mixins";
+
+// FRC banners
+.banner-container {
+	text-align: center;
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.banner-container::-webkit-scrollbar {
+	display: none;
+}
+
+.banner img {
+	transition: $nav-transition;
+	width: 140px;
+	display: inline-block;
+	white-space: normal;
+}
+
+.banner {
+	position: relative;
+	margin: 0 11px;
+	width: 140px;
+	text-align: center;
+	display: inline-block;
+}
+
+.banner div {
+	margin-bottom: 0;
+	font-family: "CooperHewitt Bold", "Franklin Gothic Bold", "Franklin Gothic", Arial, sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	width: 100%;
+	color: white;
+}
+
+.banner-text {
+	top: 75px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	line-height: 1.3;
+}
