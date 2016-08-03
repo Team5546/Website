@@ -9,7 +9,4 @@ $( document ).ready(function() {
 	if (!window.mobilecheck()) {
 		$('.intro-video').attr("src", "/res/bgvideo.mp4");
 	}
-	window.onscroll = function() {
-		document.getElementsByClassName('intro-video')[0].style.marginTop = document.body.scrollTop / 1.5 + 'px';
-	}
 });
