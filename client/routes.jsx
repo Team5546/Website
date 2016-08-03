@@ -8,7 +8,8 @@ import Robots from "./pages/robots/Robots.jsx";
 import Sponsors from "./pages/sponsors/Sponsors.jsx";
 import Login from "./pages/team/Login.jsx";
 import Card from "./components/Card.jsx";
-import { Accounts, Meteor } from 'meteor/accounts-base';
+import Page from "./components/Page.jsx";
+import {Accounts} from "meteor/accounts-base";
 
 FlowRouter.route('/', {
 	action() {
@@ -60,20 +61,30 @@ FlowRouter.route('/team/login', {
 	}
 });
 
+FlowRouter.route('/page/', {
+	action() {
+		mount(MainLayout, {
+			name: "test",
+			category: "test",
+			content: (<Page />)
+		});
+	}
+});
+
 FlowRouter.route('/team/admin', {
 	action() {
 		if (Accounts.userId()) {
 			mount(MainLayout, {
 				name: "login",
 				category: "team",
-				content: (<Card content="Authorized" />)
+				content: (<Card content="Authorized"/>)
 			});
 		} else {
 			// FlowRouter.go('/team/login');
 			mount(MainLayout, {
 				name: "login",
 				category: "team",
-				content: (<Card content="Not Authorized" />)
+				content: (<Card content="Not Authorized"/>)
 			});
 		}
 	}
