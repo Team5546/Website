@@ -6,6 +6,7 @@ import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Robots from "./pages/robots/Robots.jsx";
 import Sponsors from "./pages/sponsors/Sponsors.jsx";
+import Login from "./pages/team/Login.jsx";
 import Navbar from "./components/Navbar.jsx";
 import IntroVideo from "./components/IntroVideo.jsx";
 
@@ -14,9 +15,7 @@ FlowRouter.route('/', {
 		mount(HomeLayout, {
 			name: "home",
 			category: "home",
-			content: (<Home />),
-			navbar: (<Navbar />),
-			introVideo: (<IntroVideo />)
+			content: (<Home />)
 		});
 	}
 });
@@ -26,8 +25,7 @@ FlowRouter.route('/about', {
 		mount(MainLayout, {
 			name: "about",
 			category: "about",
-			content: (<About />),
-			navbar: (<Navbar />)
+			content: (<About />)
 		});
 	}
 });
@@ -37,8 +35,7 @@ FlowRouter.route('/about/robots', {
 		mount(MainLayout, {
 			name: "about-robots",
 			category: "about",
-			content: (<Robots />),
-			navbar: (<Navbar />)
+			content: (<Robots />)
 		});
 	}
 });
@@ -48,8 +45,17 @@ FlowRouter.route('/sponsors', {
 		mount(MainLayout, {
 			name: "sponsors",
 			category: "sponsors",
-			content: (<Sponsors />),
-			navbar: (<Navbar />)
+			content: (<Sponsors />)
+		});
+	}
+});
+
+FlowRouter.route('/team/login', {
+	action() {
+		mount(MainLayout, {
+			name: "login",
+			category: "team",
+			content: (<Login />)
 		});
 	}
 });

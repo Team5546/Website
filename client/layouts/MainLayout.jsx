@@ -1,11 +1,12 @@
 import React from "react";
 import Footer from "../components/Footer.jsx";
+import Navbar from "../components/Navbar.jsx";
 
-export const MainLayout = ({name, category, content, navbar}) => (
+export const MainLayout = ({name, category, content}) => (
 	<div>
 		<div className={name + " " + category}>
 			<header>
-				{navbar}
+				<Navbar />
 			</header>
 
 			<main className="container content">
