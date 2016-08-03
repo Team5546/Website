@@ -4,7 +4,6 @@ accounts-oauth@1.1.13
 accounts-ui@1.1.9
 accounts-ui-unstyled@1.1.12
 allow-deny@1.0.5
-autopublish@1.0.7
 autoupdate@1.2.11
 babel-compiler@6.9.0
 babel-runtime@0.1.10
@@ -48,6 +47,7 @@ less@2.6.5
 livedata@1.0.18
 localstorage@1.0.11
 logging@1.1.14
+malkesh:trumbowyg@0.0.1
 meteor@1.2.16
 meteor-base@1.0.4
 meteortoys:allthings@3.0.0

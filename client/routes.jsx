@@ -66,7 +66,7 @@ FlowRouter.route('/page/', {
 		mount(MainLayout, {
 			name: "test",
 			category: "test",
-			content: (<Page />)
+			content: (<Page name="Test" />)
 		});
 	}
 });
