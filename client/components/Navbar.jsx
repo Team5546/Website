@@ -56,7 +56,7 @@ export default class Navbar extends TrackerReact(React.Component) {
 								</ul>
 							</li>
 							<li className="menu-sponsors"><a href="/sponsors/">Sponsors</a></li>
-							<li className="menu-team"><a href="">Team</a></li>
+							<li className="menu-team"><a href="/team/login/">Team</a></li>
 						</ul>
 					</div>
 				</div>
