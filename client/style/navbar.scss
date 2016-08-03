@@ -6,12 +6,15 @@
 	padding-top: 0;
 }
 
-.navbar-nav li {
-	color: white !important;
-	font-family: $big-stack;
+.navbar-nav li, .dropdown-menu li a, .dropdown-menu li {
+	font-family: $big-stack !important;
 	text-transform: uppercase;
 	font-size: 18px;
 	font-weight: 600;
+}
+
+.navbar-nav li {
+	color: white !important;
 }
 
 .navbar-inverse .navbar-nav > li > a {
