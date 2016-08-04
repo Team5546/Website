@@ -39,7 +39,7 @@ p, main ul, main ol, main li, main a, html {
 /*Make the sponsor logos fit reasonably in the sponsor page*/
 .sponsor {
 	max-height: 300px;
-	max-width: 400px;
+	max-width: 100%;
 }
 
 /*Add more spacing between sponsor sections*/
@@ -53,4 +53,16 @@ p, main ul, main ol, main li, main a, html {
 
 .sponsors-right {
 	padding-right: 0;
+}
+
+
+@media (max-width: 767px) {
+	// Remove padding from sponsors when on mobile so it doesn't cause a shift
+	.sponsors-left {
+		padding-right: 0;
+	}
+
+	.sponsors-right {
+		padding-left: 0;
+	}
 }
