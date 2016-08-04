@@ -7,6 +7,7 @@ import About from "./pages/about/About.jsx";
 import Robots from "./pages/robots/Robots.jsx";
 import Sponsors from "./pages/sponsors/Sponsors.jsx";
 import Login from "./pages/team/Login.jsx";
+import Team from "./pages/team/Team.jsx";
 import Card from "./components/Card.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
@@ -61,12 +62,22 @@ FlowRouter.route('/team/login', {
 	}
 });
 
+FlowRouter.route('/team', {
+	action() {
+		mount(MainLayout, {
+			name: "login",
+			category: "team",
+			content: (<Team />)
+		});
+	}
+});
+
 FlowRouter.route('/page/', {
 	action() {
 		mount(MainLayout, {
 			name: "test",
 			category: "test",
-			content: (<Page name="Test" />)
+			content: (<Page name="Test"/>)
 		});
 	}
 });
