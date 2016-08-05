@@ -9,7 +9,6 @@ export const HomeLayout = ({name, category, content}) => (
 		<div className={name + " " + category}>
 			<header>
 				<Navbar />
-				<Alert type="success" message="Website has been fully updated for the 2016-17 year." />
 				<IntroVideo />
 			</header>
 			
