@@ -39,3 +39,4 @@ accounts-ui
 accounts-google
 
 malkesh:trumbowyg           # Trumbowyg WYSIWYG HTML editor
+summernote:summernote       # Summernote WYSIWYG HTML editor
