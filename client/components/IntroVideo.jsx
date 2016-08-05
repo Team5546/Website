@@ -12,7 +12,7 @@ export default class IntroVideo extends TrackerReact(React.Component) {
 	
 	render() {
 		
-		const videoSource = this.mobile() ? "" : "/res/BGLRC.mp4";
+		const videoSource = this.mobile() ? "" : "/res/bgvideo.mp4";
 		
 		return (
 			<div className="intro-container fit-width">
