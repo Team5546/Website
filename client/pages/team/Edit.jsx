@@ -21,8 +21,8 @@ export default class Team extends TrackerReact(React.Component) {
 				<Card title={<div><AccountsUI /></div>} content={
 					<div>
 						<ul className="nav nav-tabs">
-							<li role="presentation" className="active"><a href="/team">Home</a></li>
-							<li role="presentation"><a href="/team/edit">Page Editor</a></li>
+							<li role="presentation"><a href="/team">Home</a></li>
+							<li role="presentation" className="active"><a href="/team/edit">Page Editor</a></li>
 							<li role="presentation"><a href="#">Inventory</a></li>
 							<li role="presentation"><a href="#">Users</a></li>
 							<li role="presentation"><a href="#">Settings</a></li>
