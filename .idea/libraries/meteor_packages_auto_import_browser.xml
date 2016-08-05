@@ -27,6 +27,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-base/1.2.9/web.browser/server_main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-base/1.2.9/web.browser/client_main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/style/JetSetter.css" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/summernote_summernote/0.8.1/web.browser/dist/summernote.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/webapp-hashing/1.0.9/web.browser/webapp-hashing.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/functions.js" />
@@ -37,6 +38,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/_component/component.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row_editor/JetSetter_editor.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row_header/JetSetter_header.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/summernote_summernote/0.8.1/web.browser/dist/summernote.css" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/dirtySession/main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/dirtySession/create/main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/dirtySession/editor/main.js" />
@@ -314,6 +316,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-base/1.2.9/web.browser/server_main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-base/1.2.9/web.browser/client_main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/style/JetSetter.css" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/summernote_summernote/0.8.1/web.browser/dist/summernote.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/webapp-hashing/1.0.9/web.browser/webapp-hashing.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/functions.js" />
@@ -324,6 +327,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/_component/component.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row_editor/JetSetter_editor.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row_header/JetSetter_header.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/summernote_summernote/0.8.1/web.browser/dist/summernote.css" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/dirtySession/main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/dirtySession/create/main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/dirtySession/editor/main.js" />

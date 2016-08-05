@@ -96,6 +96,7 @@ spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-css@1.1.8
 standard-minifier-js@1.1.8
+summernote:summernote@0.8.1
 templating@1.1.14
 templating-tools@1.0.4
 themeteorchef:bert@2.1.1
