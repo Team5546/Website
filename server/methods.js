@@ -1,14 +1,17 @@
 Meteor.methods({
-	test: function() {
-		console.log("test");
-		return "test";
-	},
 	'editor.getPage'({page}) {
 		if (!Roles.userIsInRole(Meteor.userId(), ['admin', 'editor'])) {
 			throw new Meteor.Error('not-authorized');
 		}
 		
 		return Pages.findOne({"name": page});
+	},
+	'editor.updatePage'({page, content}) {
+		if (!Roles.userIsInRole(Meteor.userId(), ['admin', 'editor'])) {
+			throw new Meteor.Error('not-authorized');
+		}
+
+		Pages.update({"name": page}, {$set: {"cards.0.content": content}});
 	}
 });
 
