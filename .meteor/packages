@@ -25,6 +25,7 @@ meteortoys:allthings
 ultimatejs:tracker-react
 
 check@1.2.3
+alanning:roles              # User roles
 
 twbs:bootstrap
 fourseven:scss
