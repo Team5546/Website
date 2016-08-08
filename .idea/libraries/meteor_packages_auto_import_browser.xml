@@ -31,8 +31,6 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/webapp-hashing/1.0.9/web.browser/webapp-hashing.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/functions.js" />
-        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/malkesh_trumbowyg/0.0.1/web.browser/dist/ui/trumbowyg.min.css" />
-        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/malkesh_trumbowyg/0.0.1/web.browser/dist/trumbowyg.min.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row/main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row_dict/main.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/_component/component.js" />
@@ -324,8 +322,6 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/webapp-hashing/1.0.9/web.browser/webapp-hashing.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/functions.js" />
-      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/malkesh_trumbowyg/0.0.1/web.browser/dist/ui/trumbowyg.min.css" />
-      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/malkesh_trumbowyg/0.0.1/web.browser/dist/trumbowyg.min.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row/main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/row_dict/main.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/msavin_jetsetter/2.0.0/web.browser/client/_component/component.js" />
