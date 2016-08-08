@@ -7,6 +7,7 @@ export default class Card extends TrackerReact(React.Component) {
 	render() {
 		const title = this.props.title;
 		const content = this.props.content;
+		const classes = this.props.className ? "card " + this.props.className : "card";
 
 		var header;
 
@@ -19,7 +20,7 @@ export default class Card extends TrackerReact(React.Component) {
 		}
 
 		return (
-			<div className="card">
+			<div className={classes}>
 				{header}
 				<div className="card-content">
 					{content}
