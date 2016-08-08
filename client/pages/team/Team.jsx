@@ -6,9 +6,6 @@ import AccountsUI from "../../components/AccountsUI.jsx";
 export default class Team extends TrackerReact(React.Component) {
 
 	render() {
-		Accounts.onLogin(function () {
-			FlowRouter.go("/team");
-		});
 
 		if (!Accounts.userId()) {
 			FlowRouter.go("/team/login");
