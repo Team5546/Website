@@ -1,5 +1,15 @@
 Meteor.methods({
-
+	test: function() {
+		console.log("test");
+		return "test";
+	},
+	'editor.getPage'({page}) {
+		if (!Roles.userIsInRole(Meteor.userId(), ['admin', 'editor'])) {
+			throw new Meteor.Error('not-authorized');
+		}
+		
+		return Pages.findOne({"name": page});
+	}
 });
 
 /* Current Meteor allows the user to update their own profile. This prevents
