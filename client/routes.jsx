@@ -9,6 +9,8 @@ import Sponsors from "./pages/sponsors/Sponsors.jsx";
 import Login from "./pages/team/Login.jsx";
 import Team from "./pages/team/Team.jsx";
 import Edit from "./pages/team/Edit.jsx";
+import Editor from "./pages/team/Editor.jsx";
+import Previewer from "./pages/team/Previewer.jsx";
 import Card from "./components/Card.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
@@ -79,6 +81,26 @@ FlowRouter.route('/team/edit', {
 			name: "edit",
 			category: "team",
 			content: (<Edit />)
+		});
+	}
+});
+
+FlowRouter.route('/team/edit/:page', {
+	action(params) {
+		mount(MainLayout, {
+			name: "edit",
+			category: "team",
+			content: (<Editor page={params.page} />)
+		});
+	}
+});
+
+FlowRouter.route('/team/preview/:page', {
+	action(params) {
+		mount(MainLayout, {
+			name: "edit",
+			category: "team",
+			content: (<Previewer page={params.page} />)
 		});
 	}
 });
