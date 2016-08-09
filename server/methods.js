@@ -20,11 +20,13 @@ Meteor.methods({
 		return Pages.update({"_id": id}, {$set: {"cards": cards}});
 	},
 
-	'editor.createPage'(name) {
+	'editor.createPage'({name, title}) {
 		authenticate(['admin', 'editor']);
 		check(name, String);
+		check(title, String);
 		Pages.insert({
 			"name": name,
+			"title": title,
 			"cards": []
 		});
 	},

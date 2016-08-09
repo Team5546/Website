@@ -36,9 +36,13 @@ export default class Edit extends TrackerReact(React.Component) {
 			event.stopPropagation();
 		}
 
-		Meteor.call("editor.createPage", $(".input-create-page").val(), function(err) {
+		Meteor.call("editor.createPage", {
+			"name": $(".input-create-page").val(),
+			"title": $(".input-create-title").val()
+		}, function(err) {
 			if (!err) {
 				$(".input-create-page").val("");
+				$(".input-create-title").val("");
 				Bert.alert({
 					message: "Page Created",
 					type: "success",
@@ -71,7 +75,7 @@ export default class Edit extends TrackerReact(React.Component) {
 						<div>
 
 							<div>
-								<label>Modify a page</label>
+								<h3>Modify a page</h3>
 								<div className="form-group">
 										<select className="form-control input-page" id="input-page">
 											{pages.map((page)=> {
@@ -86,9 +90,11 @@ export default class Edit extends TrackerReact(React.Component) {
 							</div>
 
 							<form onSubmit={this.createPage} style={{marginTop: "80px"}}>
-								<label>Create a new page</label>
+								<h3>Create a new page</h3>
 								<div className="form-group">
-									<input className="form-control input-create-page" />
+									<label>Name</label> — This is what shows up in the browser, and should not be changed afterwards. The name should be lowercase and have no spaces (use a hyphen instead) or special characters.<input className="form-control input-create-page" placeholder="Page name" />
+									<br />
+									<label>Title</label> — This is the user-friendly name that will show up in the window title and should use proper spaces and capitalization.<input className="form-control input-create-title" placeholder="Page title" />
 								</div>
 								<button className="form-control btn btn-primary" onClick={this.createPage}>Create Page</button>
 							</form>

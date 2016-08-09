@@ -116,6 +116,14 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	cursor: pointer;
 }
 
+input.form-control {
+	margin-top: 5px;
+}
+
+.form-group {
+	margin-top: 15px;
+}
+
 @media (max-width: 767px) {
 	// Remove padding from sponsors when on mobile so it doesn't cause a shift
 	.sponsors-left {
