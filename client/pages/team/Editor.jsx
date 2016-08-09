@@ -10,7 +10,7 @@ export default class Editor extends TrackerReact(React.Component) {
 	constructor(props) {
 		super(props);
 
-		Meteor.subscribe("getPage", this.props.page);
+		Meteor.subscribe("editor.getPage", this.props.page);
 	}
 
 	componentDidUpdate() {
@@ -21,11 +21,11 @@ export default class Editor extends TrackerReact(React.Component) {
 		this.editPage();
 	}
 
-	getPage(page) {
-		return Pages.findOne({"name": page});
+	getPage(id) {
+		return Pages.findOne({"_id": id});
 	}
 
-	saveChanges() {
+	saveChanges(exit) {
 		var length = $('.editor').length;
 		var contents = [];
 		var titles = [];
@@ -49,7 +49,7 @@ export default class Editor extends TrackerReact(React.Component) {
 		}
 
 		Meteor.call("editor.updatePage", {
-			"page": this.props.page,
+			"id": this.props.page,
 			"cards": cards
 		}, function (err, response) {
 			if (response) {
@@ -58,6 +58,18 @@ export default class Editor extends TrackerReact(React.Component) {
 					type: "success",
 					style: "growl-top-right",
 					icon: "fa-check"
+				});
+
+				if (exit) {
+					_this.back();
+				}
+
+			} else {
+				Bert.alert({
+					message: "Error!",
+					type: "danger",
+					style: "growl-top-right",
+					icon: "fa-exclamation"
 				});
 			}
 		});
@@ -106,7 +118,8 @@ export default class Editor extends TrackerReact(React.Component) {
 						<TeamHeader />
 						<p className="editor-buttons">
 							<button className="btn btn-danger editor-back" onClick={this.back.bind(this)}>&larr; Back to Preview</button>
-							<button className="btn btn-success editor-save" onClick={this.saveChanges.bind(this)}>Save Changes</button>
+							<button className="btn btn-success editor-save" onClick={this.saveChanges.bind(this, false)}>Save Changes</button>
+							<button className="btn btn-default editor-save-exit" onClick={this.saveChanges.bind(this, true)}>Save & Exit</button>
 						</p>
 					</div>
 				}/>

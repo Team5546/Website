@@ -10,15 +10,15 @@ export default class Editor extends TrackerReact(React.Component) {
 	constructor(props) {
 		super(props);
 
-		Meteor.subscribe("getPage", this.props.page);
+		Meteor.subscribe("editor.getPage", this.props.page);
 	}
 
 	componentDidMount() {
 
 	}
 
-	getPage(page) {
-		return Pages.findOne({"name": page});
+	getPage(id) {
+		return Pages.findOne({"_id": id});
 	}
 
 	editPage() {
@@ -29,8 +29,8 @@ export default class Editor extends TrackerReact(React.Component) {
 		Meteor.call("editor.addCard", this.props.page);
 	}
 
-	deleteCard(id) {
-		Meteor.call("editor.deleteCard", {"name": this.props.page, "id": id});
+	deleteCard(cardId) {
+		Meteor.call("editor.deleteCard", {"id": this.props.page, "cardId": cardId});
 	}
 
 	back() {

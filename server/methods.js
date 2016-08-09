@@ -9,35 +9,57 @@ function authenticate(roles) {
 Meteor.methods({
 	'editor.getPage'({page}) {
 		authenticate(['admin', 'editor']);
+		check(page, String);
 		return Pages.findOne({"name": page});
 	},
 
-	'editor.updatePage'({page, cards}) {
+	'editor.updatePage'({id, cards}) {
 		authenticate(['admin', 'editor']);
-		return Pages.update({"name": page}, {$set: {"cards": cards}});
+		check(id, String);
+		check(cards, Array);
+		return Pages.update({"_id": id}, {$set: {"cards": cards}});
 	},
 
 	'editor.createPage'(name) {
 		authenticate(['admin', 'editor']);
+		check(name, String);
 		Pages.insert({
 			"name": name,
 			"cards": []
 		});
 	},
 
-	'editor.deletePage'(name) {
+	'editor.renamePage'({id, name}) {
 		authenticate(['admin', 'editor']);
-		Pages.remove({"name": name});
+		check(page, String);
+		check(name, String);
+		return Pages.update({"_id": id}, {$set: {"name": name}});
 	},
 
-	'editor.addCard'(name) {
+	'editor.changePageTitle'({id, title}) {
 		authenticate(['admin', 'editor']);
-		Pages.update({"name": name}, {$push: {"cards": {"id": UUID.v4(),"title": "", "content": ""}}});
+		check(id, String);
+		check(title, Array);
+		return Pages.update({"_id": id}, {$set: {"title": title}});
 	},
 
-	'editor.deleteCard'({name, id}) {
+	'editor.deletePage'(id) {
 		authenticate(['admin', 'editor']);
-		Pages.update({"name": name}, {$pull: {"cards": {"id": id}}});
+		check(id, String);
+		Pages.remove({"_id": id});
+	},
+
+	'editor.addCard'(id) {
+		authenticate(['admin', 'editor']);
+		check(id, String);
+		Pages.update({"_id": id}, {$push: {"cards": {"id": UUID.v4(),"title": "", "content": ""}}});
+	},
+
+	'editor.deleteCard'({id, cardId}) {
+		authenticate(['admin', 'editor']);
+		check(id, String);
+		check(cardId, String);
+		Pages.update({"_id": id}, {$pull: {"cards": {"id": cardId}}});
 	}
 });
 

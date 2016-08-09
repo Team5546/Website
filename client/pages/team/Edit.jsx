@@ -16,7 +16,7 @@ export default class Edit extends TrackerReact(React.Component) {
 	}
 
 	deletePage() {
-		if (confirm('Are you sure you want to delete the page "' + $(".input-page").val() + '"')) {
+		if (confirm('Are you sure you want to delete the page "' + $(".input-page option:selected").text() + '"')) {
 			Meteor.call("editor.deletePage", $(".input-page").val(), function(err) {
 				if (!err) {
 					Bert.alert({
@@ -76,7 +76,7 @@ export default class Edit extends TrackerReact(React.Component) {
 										<select className="form-control input-page" id="input-page">
 											{pages.map((page)=> {
 												return (
-													<option key={page.name} value={page.name}>{page.name}</option>
+													<option key={page._id} value={page._id}>{page.name}</option>
 												)
 											})}
 										</select>
