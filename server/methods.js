@@ -31,17 +31,17 @@ Meteor.methods({
 		});
 	},
 
-	'editor.renamePage'({id, name}) {
+	'editor.changeName'({id, name}) {
 		authenticate(['admin', 'editor']);
-		check(page, String);
+		check(id, String);
 		check(name, String);
 		return Pages.update({"_id": id}, {$set: {"name": name}});
 	},
 
-	'editor.changePageTitle'({id, title}) {
+	'editor.updateTitle'({id, title}) {
 		authenticate(['admin', 'editor']);
 		check(id, String);
-		check(title, Array);
+		check(title, String);
 		return Pages.update({"_id": id}, {$set: {"title": title}});
 	},
 

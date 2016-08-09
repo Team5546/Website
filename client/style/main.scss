@@ -55,10 +55,6 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	padding-right: 0;
 }
 
-.edit .note-editable {
-	height: 150px;
-}
-
 .edit .note-editor {
 	margin-top: 5px;
 	margin-bottom: 0;
@@ -72,7 +68,7 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	width: 100%;
 }
 
-.editor-buttons button {
+.editor-buttons button, .btn-editor {
 	margin-right: 10px;
 }
 
@@ -85,10 +81,6 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	font-weight: normal;
 	text-transform: none;
 	float: right;
-}
-
-.btn-editor {
-	margin: 0 5px;
 }
 
 .btn-google-login {
@@ -120,8 +112,8 @@ input.form-control {
 	margin-top: 5px;
 }
 
-.form-group {
-	margin-top: 15px;
+.form-group h3 {
+	margin-top: 0;
 }
 
 @media (max-width: 767px) {
@@ -132,5 +124,10 @@ input.form-control {
 
 	.sponsors-right {
 		padding-left: 0;
+	}
+
+	// Add spacing to the team/preview update and change forms when they are not side-by-side
+	.form-group {
+		margin-top: 15px;
 	}
 }
