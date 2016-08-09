@@ -1,35 +1,46 @@
 import React from "react";
 import TrackerReact from "meteor/ultimatejs:tracker-react";
 import Card from "../../components/Card.jsx";
-import AccountsUI from "../../components/AccountsUI.jsx";
-import DOMPurify from "dompurify";
+import TeamTitle from "../../components/TeamTitle.jsx";
+import TeamHeader from "../../components/TeamHeader.jsx";
 
 export default class Edit extends TrackerReact(React.Component) {
 
 	constructor(props) {
 		super(props);
-		Meteor.call("editor.getPage", {page: "Test"}, function(err, response) {
-			Session.set('page', response);
-		});
-
+		Meteor.subscribe("editor.getPages");
 	}
 
-	getId() {
-		return Math.floor(Math.random() * 99999999) + 10000000;
+	editPage() {
+		FlowRouter.go("/team/preview/" + $(".input-page").val())
 	}
 
-	getPage(page) {
-		return Pages.findOne({"name": page});
+	deletePage() {
+		if (confirm('Are you sure you want to delete the page "' + $(".input-page").val() + '"')) {
+			Meteor.call("editor.deletePage", $(".input-page").val(), function(err) {
+				if (!err) {
+					Bert.alert({
+						message: "Page Deleted",
+						type: "success",
+						style: "growl-top-right",
+						icon: "fa-trash"
+					});
+				}
+			});
+		}
 	}
 
-	saveChanges() {
-		Meteor.call("editor.updatePage", {
-			"page": "Test",
-			"content": $('.editor').summernote('code')
-		}, function (err, response) {
-			if (response) {
+	createPage(event) {
+		if (event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+
+		Meteor.call("editor.createPage", $(".input-create-page").val(), function(err) {
+			if (!err) {
+				$(".input-create-page").val("");
 				Bert.alert({
-					message: "Saved!",
+					message: "Page Created",
 					type: "success",
 					style: "growl-top-right",
 					icon: "fa-check"
@@ -38,65 +49,52 @@ export default class Edit extends TrackerReact(React.Component) {
 		});
 	}
 
-	getPageContent() {
-		return Session.get('page');
-	}
-
-	editPage() {
-		$('.editor').summernote({
-			fontNames: ['Open Sans', 'Coo Hew'],
-			fontNamesIgnoreCheck: ['Open Sans', 'Coo Hew']
-		});
-
-		$('.editor').each(function (i, obj) {
-			$('.editor').eq(i).summernote('code', Session.get("page").cards[i].content);
-		});
-	}
-
 	render() {
-		let page = this.getPageContent();
 
+		// If the server has not sent the collection over yet, don't try to render or access the database
+		if (!Pages) {
+			return;
+		}
+
+		// Redirect to login page if user is not authenticated
 		if (!Accounts.userId()) {
 			FlowRouter.go("/team/login");
 		}
 
-		const name = Accounts.user() ? Accounts.user().profile.name : "";
-
-		if (!page) {
-			return (
-				<div></div>
-			)
-		}
+		let pages = Pages.find();
 
 		return (
 			<div className="edit">
-				<Card title={<div><AccountsUI /></div>} content={
+				<Card title={<TeamTitle />} content={
 					<div>
-						<ul className="nav nav-tabs">
-							<li role="presentation"><a href="/team">Home</a></li>
-							<li role="presentation" className="active"><a href="/team/edit">Page Editor</a></li>
-							<li role="presentation"><a href="#">Inventory</a></li>
-							<li role="presentation"><a href="#">Users</a></li>
-							<li role="presentation"><a href="#">Settings</a></li>
-						</ul>
-						<p>
-							Choose a page to edit:
-							<select>
-								<option>Sponsors</option>
-							</select>
-							<br />
-							<button className="save-changes btn btn-primary" onClick={this.editPage}>Edit Page</button><br />
-							<button className="save-changes btn btn-success" onClick={this.saveChanges}>Save Changes</button>
-							<button className="save-changes btn btn-default" onClick={this.addCard}>Add Card</button>
-						</p>
+						<TeamHeader />
+						<div>
+
+							<div>
+								<label>Modify a page</label>
+								<div className="form-group">
+										<select className="form-control input-page" id="input-page">
+											{pages.map((page)=> {
+												return (
+													<option key={page.name} value={page.name}>{page.name}</option>
+												)
+											})}
+										</select>
+								</div>
+								<button className="btn btn-primary col-xs-9" onClick={this.editPage}>Edit</button>
+								<button className="btn btn-danger col-xs-3" onClick={this.deletePage}>Delete</button>
+							</div>
+
+							<form onSubmit={this.createPage} style={{marginTop: "80px"}}>
+								<label>Create a new page</label>
+								<div className="form-group">
+									<input className="form-control input-create-page" />
+								</div>
+								<button className="form-control btn btn-primary" onClick={this.createPage}>Create Page</button>
+							</form>
+						</div>
 					</div>
 				}/>
-
-				{page.cards.map( (card)=>{
-					return <Card key={this.getId()} title={card.title} className="editor" content={
-							<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(card.content)}}></div>
-						}/>
-				} )}
 
 			</div>
 
