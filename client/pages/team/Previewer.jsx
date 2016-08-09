@@ -110,7 +110,7 @@ export default class Editor extends TrackerReact(React.Component) {
 									<h3>Change Name</h3>
 									This is what shows up in the browser, and should not be changed afterwards. The name should be lowercase and have no spaces (use a hyphen instead) or special characters.<input type="text" className="form-control input-change-name" placeholder="Page name" />
 									</div>
-									<div>This should only be done if absolutely necessary, as it will destroy any links to this page.</div>
+									<div style={{marginBottom: "10px"}}>This should only be done if absolutely necessary, as it will destroy any links to this page.</div>
 									<button className="btn btn-warning" onClick={this.changeName.bind(this)}>Update Name</button>
 								</form>
 							</div>
