@@ -15,6 +15,9 @@ import Card from "./components/Card.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
 
+Pages = new Mongo.Collection("pages");
+titleSuffix = " | ARGS Robotics Team";
+
 FlowRouter.route('/', {
 	action() {
 		mount(HomeLayout, {
@@ -105,12 +108,12 @@ FlowRouter.route('/team/preview/:page', {
 	}
 });
 
-FlowRouter.route('/page/', {
-	action() {
+FlowRouter.route('/page/:name', {
+	action(params) {
 		mount(MainLayout, {
-			name: "test",
-			category: "test",
-			content: (<Page name="Test"/>)
+			name: "page",
+			category: "page",
+			content: (<Page name={params.name} />)
 		});
 	}
 });
