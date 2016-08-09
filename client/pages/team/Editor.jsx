@@ -105,7 +105,7 @@ export default class Editor extends TrackerReact(React.Component) {
 					<div>
 						<TeamHeader />
 						<p className="editor-buttons">
-							<button className="btn btn-danger editor-save" onClick={this.back.bind(this)}>&larr; Back to Preview</button>
+							<button className="btn btn-danger editor-back" onClick={this.back.bind(this)}>&larr; Back to Preview</button>
 							<button className="btn btn-success editor-save" onClick={this.saveChanges.bind(this)}>Save Changes</button>
 						</p>
 					</div>
