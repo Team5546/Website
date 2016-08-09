@@ -66,7 +66,7 @@ export default class Edit extends TrackerReact(React.Component) {
 			<div className="edit">
 				<Card title={<TeamTitle />} content={
 					<div>
-						<TeamHeader />
+						<TeamHeader active="editor"/>
 						<div>
 
 							<div>

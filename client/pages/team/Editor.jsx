@@ -115,7 +115,7 @@ export default class Editor extends TrackerReact(React.Component) {
 			<div className="edit">
 				<Card title={<TeamTitle />} content={
 					<div>
-						<TeamHeader />
+						<TeamHeader active="editor"/>
 						<h3>{page.title} ({page.name})</h3>
 						<p className="editor-buttons">
 							<button className="btn btn-danger editor-back" onClick={this.back.bind(this)}>&larr; Back to Preview</button>

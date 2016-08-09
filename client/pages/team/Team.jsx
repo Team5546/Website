@@ -18,7 +18,7 @@ export default class Team extends TrackerReact(React.Component) {
 			<div>
 				<Card title={<TeamTitle />} content={
 					<div>
-						<TeamHeader />
+						<TeamHeader active="home"/>
 					</div>
 				}/>
 			</div>
