@@ -1,9 +1,16 @@
 import React from "react";
 import TrackerReact from "meteor/ultimatejs:tracker-react";
 import Card from "../../components/Card.jsx";
-import AccountsUI from "../../components/AccountsUI.jsx";
 
 export default class Login extends TrackerReact(React.Component) {
+
+	loginWithGoogle() {
+		Meteor.loginWithGoogle();
+	}
+
+	loginWithToken() {
+		Meteor.loginWithToken($("input").val());
+	}
 
 	render() {
 		Accounts.onLogin(function () {
@@ -12,9 +19,18 @@ export default class Login extends TrackerReact(React.Component) {
 
 		return (
 			<div>
-				<Card title="Please login to view this content" content={
+				<Card title="Login to view this content" content={
 					<div>
-						<AccountsUI />
+						<div style={{marginBottom: "30px"}}>
+							Accessing this page requires an approved account. Students must use an args.us or argsrobotics.com email address. Parents and mentors may use their personal emails, but will need to have them input.
+						</div>
+						<a className="btn btn-google-login" onClick={this.loginWithGoogle}><i className="fa fa-google"></i>Sign in with Google</a>
+
+						<div>
+							<br />
+							Alternatively, you may also login with a one-use token if provided with one.<br />
+							<input /><button onClick={this.loginWithToken}>Authenticate Token</button>
+						</div>
 					</div>
 				}/>
 			</div>

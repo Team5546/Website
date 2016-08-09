@@ -22,7 +22,7 @@ p {
 	margin: 0 0 20px;
 }
 
-p, main ul, main ol, main li, main a, html {
+p, main ul, main ol, main li, main a, html, .note-editable {
 	font-family: $small-stack;
 	font-size: 12pt;
 }
@@ -55,6 +55,66 @@ p, main ul, main ol, main li, main a, html {
 	padding-right: 0;
 }
 
+.edit .note-editable {
+	height: 150px;
+}
+
+.edit .note-editor {
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+.editor-title {
+	margin-top: 20px;
+	font-family: $big-stack;
+	font-size: 24pt;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+.editor-buttons button {
+	margin-right: 10px;
+}
+
+.nav-tabs {
+	margin-bottom: 20px;
+}
+
+.signout {
+	font-family: $small-stack !important;
+	font-weight: normal;
+	text-transform: none;
+	float: right;
+}
+
+.btn-editor {
+	margin: 0 5px;
+}
+
+.btn-google-login {
+	transition: $nav-transition;
+	background-color: rgba(195, 47, 16, 1);
+	color: white;
+	font-size: 18px;
+	border: 0;
+	border-radius: 0;
+	padding: 10px 15px;
+}
+
+.btn-google-login:hover {
+	color: white;
+	background-color: rgba(195, 47, 16, 0.7);
+}
+
+.btn-google-login i {
+	margin-right: 10px;
+}
+
+.card-corner {
+	float: right;
+	color: red;
+	cursor: pointer;
+}
 
 @media (max-width: 767px) {
 	// Remove padding from sponsors when on mobile so it doesn't cause a shift
