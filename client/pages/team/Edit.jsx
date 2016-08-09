@@ -55,11 +55,6 @@ export default class Edit extends TrackerReact(React.Component) {
 
 	render() {
 
-		// If the server has not sent the collection over yet, don't try to render or access the database
-		if (!Pages) {
-			return;
-		}
-
 		// Redirect to login page if user is not authenticated
 		if (!Accounts.userId()) {
 			FlowRouter.go("/team/login");
