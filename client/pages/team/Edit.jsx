@@ -75,7 +75,7 @@ export default class Edit extends TrackerReact(React.Component) {
 										<select className="form-control input-page" id="input-page">
 											{pages.map((page)=> {
 												return (
-													<option key={page._id} value={page._id}>{page.name}</option>
+													<option key={page._id} value={page._id}>{page.title}</option>
 												)
 											})}
 										</select>
