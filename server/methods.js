@@ -45,6 +45,13 @@ Meteor.methods({
 		return Pages.update({"_id": id}, {$set: {"title": title}});
 	},
 
+	'editor.setCategory'({id, category}) {
+		authenticate(['admin', 'editor']);
+		check(id, String);
+		check(category, String);
+		return Pages.update({"_id": id}, {$set: {"category": category}});
+	},
+
 	'editor.deletePage'(id) {
 		authenticate(['admin', 'editor']);
 		check(id, String);
