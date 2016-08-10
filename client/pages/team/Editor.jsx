@@ -53,20 +53,20 @@ export default class Editor extends TrackerReact(React.Component) {
 			"cards": cards
 		}, function (err, response) {
 			if (response) {
-				Bert.alert({
-					message: "Saved!",
-					type: "success",
-					style: "growl-top-right",
-					icon: "fa-check"
-				});
-
 				if (exit) {
 					_this.back();
+				} else {
+					Bert.alert({
+						message: "Saved!",
+						type: "success",
+						style: "growl-top-right",
+						icon: "fa-check"
+					});
 				}
 
 			} else {
 				Bert.alert({
-					message: "Error!",
+					message: "Error",
 					type: "danger",
 					style: "growl-top-right",
 					icon: "fa-exclamation"
