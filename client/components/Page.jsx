@@ -15,6 +15,11 @@ export default class Page extends TrackerReact(React.Component) {
 		return Pages.findOne({"name": name});
 	}
 
+	setClass() {
+		$('.layout').addClass(Pages.findOne({"name": this.props.name}).category);
+		console.log(Pages.findOne({"name": this.props.name}).category);
+	}
+
 	render() {
 		let page = this.getPage(this.props.name);
 
@@ -33,6 +38,7 @@ export default class Page extends TrackerReact(React.Component) {
 						<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(card.content)}}></div>
 					}/>
 				} )}
+				{this.setClass()}
 			</div>
 		)
 

@@ -18,6 +18,8 @@ import {Accounts} from "meteor/accounts-base";
 Pages = new Mongo.Collection("pages");
 titleSuffix = " | ARGS Robotics Team";
 
+Meteor.subscribe("editor.getPages");
+
 FlowRouter.route('/', {
 	action() {
 		mount(HomeLayout, {
@@ -112,7 +114,6 @@ FlowRouter.route('/page/:name', {
 	action(params) {
 		mount(MainLayout, {
 			name: "page",
-			category: "page",
 			content: (<Page name={params.name} />)
 		});
 	}

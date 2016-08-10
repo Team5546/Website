@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.jsx";
 
 export const MainLayout = ({name, category, content}) => (
 	<div>
-		<div className={name + " " + category}>
+		<div className={name + " layout " + content}>
 			<header>
 				<Navbar />
 			</header>
