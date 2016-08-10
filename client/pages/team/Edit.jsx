@@ -54,12 +54,6 @@ export default class Edit extends TrackerReact(React.Component) {
 	}
 
 	render() {
-
-		// Redirect to login page if user is not authenticated
-		if (!Accounts.userId()) {
-			FlowRouter.go("/team/login");
-		}
-
 		let pages = Pages.find();
 
 		return (

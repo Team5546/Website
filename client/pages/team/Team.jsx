@@ -7,13 +7,6 @@ import TeamHeader from "../../components/TeamHeader.jsx";
 export default class Team extends TrackerReact(React.Component) {
 
 	render() {
-
-		if (!Accounts.userId()) {
-			FlowRouter.go("/team/login");
-		}
-
-		const name = Accounts.user() ? Accounts.user().profile.name : "";
-
 		return (
 			<div>
 				<Card title={<TeamTitle />} content={

@@ -60,41 +60,57 @@ FlowRouter.route('/team/login', {
 
 FlowRouter.route('/team', {
 	action() {
-		mount(MainLayout, {
-			name: "team",
-			category: "team",
-			content: (<Team />)
-		});
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "team",
+				category: "team",
+				content: (<Team />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
 	}
 });
 
 FlowRouter.route('/team/edit', {
 	action() {
-		mount(MainLayout, {
-			name: "edit",
-			category: "team",
-			content: (<Edit />)
-		});
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "edit",
+				category: "team",
+				content: (<Edit />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
 	}
 });
 
 FlowRouter.route('/team/edit/:page', {
 	action(params) {
-		mount(MainLayout, {
-			name: "edit",
-			category: "team",
-			content: (<Editor page={params.page} />)
-		});
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "edit",
+				category: "team",
+				content: (<Editor page={params.page} />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
 	}
 });
 
 FlowRouter.route('/team/preview/:page', {
 	action(params) {
-		mount(MainLayout, {
-			name: "edit",
-			category: "team",
-			content: (<Previewer page={params.page} />)
-		});
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "edit",
+				category: "team",
+				content: (<Previewer page={params.page}/>)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		} 
 	}
 });
 

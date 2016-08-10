@@ -87,10 +87,6 @@ export default class Editor extends TrackerReact(React.Component) {
 	render() {
 		let page = this.getPage(this.props.page);
 
-		if (!Accounts.userId()) {
-			FlowRouter.go("/team/login");
-		}
-
 		if (!page) {
 			return (
 				<div></div>
