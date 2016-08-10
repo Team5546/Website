@@ -68,6 +68,10 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	width: 100%;
 }
 
+.note-editable {
+	min-height: 100px;
+}
+
 .editor-buttons button, .btn-editor {
 	margin-right: 10px;
 }
