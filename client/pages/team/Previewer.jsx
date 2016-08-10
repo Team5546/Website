@@ -113,7 +113,7 @@ export default class Editor extends TrackerReact(React.Component) {
 								<div className="row">
 									<form className="col-md-12" onSubmit={this.setCategory.bind(this)}>
 										<div className="form-group">
-										<h3>Set Category <span className="label label-primary" style={{textTransform: "capitalize"}}>{page.category}</span></h3>
+										<h3>Set Category <span className="label label-info" style={{textTransform: "capitalize"}}>{page.category}</span></h3>
 										This is the navbar item that will be highlighted when on this page.
 											<select className="form-control input-set-category">
 												<option value="">—</option>
