@@ -127,5 +127,11 @@ FlowRouter.route('/team/admin', {
 	}
 });
 
+FlowRouter.notFound = {
+	action() {
+		FlowRouter.go("/");
+	}
+};
+
 // Reset the animation duration so moving between pages does not cause an animation
 RouterAutoscroll.animationDuration = 0;
