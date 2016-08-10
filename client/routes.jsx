@@ -10,7 +10,6 @@ import Team from "./pages/team/Team.jsx";
 import Edit from "./pages/team/Edit.jsx";
 import Editor from "./pages/team/Editor.jsx";
 import Previewer from "./pages/team/Previewer.jsx";
-import Card from "./components/Card.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
 
@@ -105,25 +104,6 @@ FlowRouter.route('/page/:name', {
 			name: "page",
 			content: (<Page name={params.name} />)
 		});
-	}
-});
-
-FlowRouter.route('/team/admin', {
-	action() {
-		if (Accounts.userId()) {
-			mount(MainLayout, {
-				name: "login",
-				category: "team",
-				content: (<Card content="Authorized"/>)
-			});
-		} else {
-			// FlowRouter.go('/team/login');
-			mount(MainLayout, {
-				name: "login",
-				category: "team",
-				content: (<Card content="Not Authorized"/>)
-			});
-		}
 	}
 });
 
