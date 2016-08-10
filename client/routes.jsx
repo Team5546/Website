@@ -3,7 +3,6 @@ import {mount} from "react-mounter";
 import {MainLayout} from "./layouts/MainLayout.jsx";
 import {HomeLayout} from "./layouts/HomeLayout.jsx";
 import Home from "./pages/home/Home.jsx";
-import About from "./pages/about/About.jsx";
 import Robots from "./pages/robots/Robots.jsx";
 import Sponsors from "./pages/sponsors/Sponsors.jsx";
 import Login from "./pages/team/Login.jsx";
@@ -26,16 +25,6 @@ FlowRouter.route('/', {
 			name: "home",
 			category: "home",
 			content: (<Home />)
-		});
-	}
-});
-
-FlowRouter.route('/about', {
-	action() {
-		mount(MainLayout, {
-			name: "about",
-			category: "about",
-			content: (<About />)
 		});
 	}
 });

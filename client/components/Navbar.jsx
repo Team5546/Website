@@ -39,7 +39,7 @@ export default class Navbar extends TrackerReact(React.Component) {
 							<li className="dropdown menu-about">
 								<a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
 								<ul className="dropdown-menu">
-									<li><a href="/about/">Our Team</a></li>
+									<li><a href="/page/about">Our Team</a></li>
 									<li><a href="#">Team Structure</a></li>
 									<li><a href="/about/robots/">Robots</a></li>
 									<li><a href="#">School</a></li>
