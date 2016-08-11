@@ -10,6 +10,7 @@ import Team from "./pages/team/Team.jsx";
 import Edit from "./pages/team/Edit.jsx";
 import Editor from "./pages/team/Editor.jsx";
 import Previewer from "./pages/team/Previewer.jsx";
+import Users from "./pages/team/Users.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
 
@@ -111,6 +112,20 @@ FlowRouter.route('/team/preview/:page', {
 		} else {
 			FlowRouter.go("/team/login");
 		} 
+	}
+});
+
+FlowRouter.route('/team/users', {
+	action() {
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "users",
+				category: "team",
+				content: (<Users />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
 	}
 });
 
