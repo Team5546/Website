@@ -150,9 +150,9 @@ export default class Editor extends TrackerReact(React.Component) {
 							<Card title={
 								<div>
 									{card.title}
-									<span><span onClick={this.deleteCard.bind(this, card.id)}><i className="card-corner fa fa-trash"></i></span></span>
+									<span><span onClick={this.deleteCard.bind(this, card.id)}><i className="card-corner fa fa-trash-o"></i></span></span>
 								</div>
-							} reactKey={card.id} cornerIcon="fa-trash" className="editor" content={
+							} reactKey={card.id} className="editor" content={
 								<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(card.content)}}></div>
 							}/>
 						</div>
