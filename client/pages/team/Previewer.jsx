@@ -30,10 +30,12 @@ export default class Editor extends TrackerReact(React.Component) {
 	}
 
 	deleteCard(cardId) {
-		Meteor.call("editor.deleteCard", {
-			"id": this.props.page,
-			"cardId": cardId
-		});
+		if (confirm("Are you sure you want to delete this card?")) {
+			Meteor.call("editor.deleteCard", {
+				"id": this.props.page,
+				"cardId": cardId
+			});
+		}
 	}
 
 	updateTitle(event) {
