@@ -31,9 +31,11 @@ export default class Users extends TrackerReact(React.Component) {
 	}
 
 	deleteUser(id) {
-		Meteor.call("users.deleteUser", {
-			"id": id
-		});
+		if (confirm("Are you sure you want to remove this user?")) {
+			Meteor.call("users.deleteUser", {
+				"id": id
+			});
+		}
 	}
 
 	setRole(id, index) {
