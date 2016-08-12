@@ -27,6 +27,11 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	font-size: 12pt;
 }
 
+// Make Bootstrap components square instead of rounded
+.form-control, .btn, .label, .list-group, .list-group-item:first-child, .list-group-item:last-child, .nav-tabs > li > a {
+	border-radius: 0;
+}
+
 .shadow {
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 }
@@ -129,7 +134,7 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 }
 
 .form-change-role .input-group {
-	margin: -4px 10px -4px 0;
+	margin: -4px 10px -4px -8px;
 }
 
 .label-role {
