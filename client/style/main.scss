@@ -120,12 +120,33 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	margin-top: 25px;
 }
 
-input.form-control {
-	margin-top: 5px;
-}
-
 .form-group h3 {
 	margin-top: 0;
+}
+
+.form-change-role {
+	display: inline;
+}
+
+.form-change-role .input-group {
+	margin: -4px 10px -4px 0;
+}
+
+.label-role {
+	text-transform: capitalize;
+	margin-right: 5px;
+}
+
+.btn-delete-user {
+	color: red;
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+	margin-left: 15px;
+}
+
+.form-new-user {
+	margin-bottom: 20px;
 }
 
 @media (max-width: 767px) {
@@ -141,5 +162,10 @@ input.form-control {
 	// Add spacing to the team/preview update and change forms when they are not side-by-side
 	.form-group {
 		margin-top: 15px;
+	}
+
+	// Add space above the role set box on mobile
+	.form-change-role .input-group {
+		margin: 0 0 10px 0;
 	}
 }

@@ -69,26 +69,31 @@ Meteor.methods({
 		check(id, String);
 		check(cardId, String);
 		Pages.update({"_id": id}, {$pull: {"cards": {"id": cardId}}});
+	},
+
+	'users.addAuthorizedUser'({email, role}) {
+		authenticate(['admin']);
+		check(email, String);
+		check(role, String);
+		AuthorizedUsers.insert({"email": email, "role": role});
+	},
+
+	'users.deleteUser'({id}) {
+		authenticate(['admin']);
+		check(id, String);
+		Meteor.users.remove({"services.google.email": AuthorizedUsers.findOne({"_id": id}).email});
+		AuthorizedUsers.remove({"_id": id});
+		Meteor.users.remove({"_id": id});
+	},
+	
+	'users.setRole'({id, role}) {
+		authenticate(['admin']);
+		check(id, String);
+		check(role, String);
+		AuthorizedUsers.update({"_id": id}, {$set: {"role": role}});
+		var user = Meteor.users.findOne({"services.google.email": AuthorizedUsers.findOne({"_id": id}).email})
+		if (user) {
+			Roles.setUserRoles(user._id, role);
+		}
 	}
 });
-
-/* Current Meteor allows the user to update their own profile. This prevents
- this from happening, allowing use of secure items in the profile like setting
- admin, etc. Meteor may implement this in the future but this is required now. */
-Meteor.users.deny({
-	update: function() {
-		return true;
-	}
-});
-
-
-/* Validate the login attempt so that only users with emails ending in certain
- sub-domains are allowed. We don't want any random Google user logging in. */
-
-Accounts.validateLoginAttempt(function(info) {
-	return userIsValid(info.user);
-});
-
-function userIsValid(user) {
-	return user.services.google.email.endsWith("@args.us") || user.services.google.email.endsWith("@argsrobotics.com");
-}

@@ -5,6 +5,7 @@ export default class TeamTitle extends TrackerReact(React.Component) {
 
 	logout() {
 		Accounts.logout();
+		FlowRouter.go("/team/login");
 	}
 
 	render() {
