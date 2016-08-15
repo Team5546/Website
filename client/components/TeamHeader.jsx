@@ -22,6 +22,16 @@ export default class TeamHeader extends TrackerReact(React.Component) {
 			)
 		}
 
+		if (Roles.getRolesForUser(Meteor.userId()).indexOf("editor") != -1) {
+			return (
+				<ul className="nav nav-tabs">
+					<li role="presentation" className={home}><a href="/team">Home</a></li>
+					<li role="presentation" className={editor}><a href="/team/edit">Page Editor</a></li>
+					<li role="presentation" className="disabled"><a href="#">Settings</a></li>
+				</ul>
+			)
+		}
+
 		return (
 			<ul className="nav nav-tabs">
 				<li role="presentation" className={home}><a href="/team">Home</a></li>
