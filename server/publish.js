@@ -46,3 +46,10 @@ Meteor.publish("users.getUsers", function() {
 Meteor.publish("alerts.getAlerts", function() {
 	return Settings.find({"name": "alert"});
 });
+
+
+
+// Banners page
+Meteor.publish("banners.getBanners", function() {
+	return BannersCollection.find({}, {sort: {position: -1}});
+});

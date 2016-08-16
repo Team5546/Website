@@ -111,5 +111,20 @@ Meteor.methods({
 	'alerts.clearAlert'() {
 		authenticate(['admin']);
 		Settings.update({"name": "alert"}, {$set: {"expire": new Date()}});
+	},
+
+	'banners.addBanner'() {
+		authenticate(['admin']);
+		BannersCollection.insert({"position": "", "year": "", "lineOne": "", "lineTwo": "", "competition": ""});
+	},
+
+	'banners.updateBanner'({id, position, year, lineOne, lineTwo, competition}) {
+		authenticate(['admin']);
+		BannersCollection.update({"_id": id}, {$set: {"position": position, "year": year, "lineOne": lineOne, "lineTwo": lineTwo, "competition": competition}});
+	},
+
+	'banners.deleteBanner'({id}) {
+		authenticate(['admin']);
+		BannersCollection.remove({"_id": id});
 	}
 });

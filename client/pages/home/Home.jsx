@@ -5,16 +5,30 @@ import Banner from "../../components/Banner.jsx";
 
 export default class Home extends TrackerReact(React.Component) {
 
-	render() {
+	constructor(props) {
+		super(props);
+		Meteor.subscribe("banners.getBanners");
+	}
 
+	render() {
+		let banners = BannersCollection.find({}, {sort: {position: -1}});
+
+		if (!banners) {
+			return (
+				<div className="loader">Loading...</div>
+			)
+		}
 
 		return (
 			<div>
 				<div className="banner-container">
-					<Banner year="2016" lineOne="Judges'" lineTwo="Award" competition="Central VA"/>
-					<Banner year="2016" lineOne="Creativity" lineTwo="Award" competition="Hampton Roads"/>
-					<Banner year="2016" lineOne="Winner" lineTwo="&nbsp;" competition="Hampton Roads"/>
-					<Banner year="2015" lineOne="Rookie" lineTwo="All-Star" competition="VA Regional"/>
+					{banners.map((banner)=> {
+						return <Banner key={banner._id}
+						               year={banner.year}
+						               lineOne={banner.lineOne}
+						               lineTwo={banner.lineTwo}
+						               competition={banner.competition}/>
+					})}
 				</div>
 
 				<Card title="Our Team" content={
