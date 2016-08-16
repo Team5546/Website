@@ -68,7 +68,7 @@ export default class Alerts extends TrackerReact(React.Component) {
 		}
 
 		return (
-			<div className="edit">
+			<div className="alerts">
 				<Card title={<TeamTitle />} content={
 					<div>
 						<TeamHeader active="alerts"/>
