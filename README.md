@@ -3,6 +3,6 @@
 ### To setup
 * Clone this repository
 * [Install Meteor.js](https://www.meteor.com/install)
-* Run `meteor npm install --save react react-dom react-mounter dompurify node-uuid react-s-alert` to install React.
+* Run `meteor npm install --save react react-dom react-mounter dompurify node-uuid` to install React.
 * To start the server, run `meteor`. This will take a while as it downloads the necessary atmosphere packages.
 * The website should now be accessable via [localhost:3000](http://localhost:3000).
