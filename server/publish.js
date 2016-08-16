@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
+// Page editor
 Meteor.publish("editor.getPage", function(id) {
 	check(id, String);
 	if (!Roles.userIsInRole(this.userId, ['admin', 'editor'])) {
@@ -22,6 +23,8 @@ Meteor.publish("editor.getPages", function() {
 	return Pages.find();
 });
 
+
+// Users page
 Meteor.publish("users.getAuthorizedUsers", function() {
 	if (!Roles.userIsInRole(this.userId, ['admin'])) {
 		throw new Meteor.Error('not-authorized');
@@ -36,4 +39,10 @@ Meteor.publish("users.getUsers", function() {
 	}
 
 	return Meteor.users.find({}, {sort: {roles: 1}});
+});
+
+
+// Home page
+Meteor.publish("alerts.getAlerts", function() {
+	return Settings.find({"name": "alert"});
 });

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 Pages = new Mongo.Collection("pages");
 AuthorizedUsers = new Mongo.Collection("authorizedUsers");
+Settings = new Mongo.Collection("settings");
 
 Meteor.startup(() => {
 

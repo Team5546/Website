@@ -91,9 +91,25 @@ Meteor.methods({
 		check(id, String);
 		check(role, String);
 		AuthorizedUsers.update({"_id": id}, {$set: {"role": role}});
-		var user = Meteor.users.findOne({"services.google.email": AuthorizedUsers.findOne({"_id": id}).email})
+		var user = Meteor.users.findOne({"services.google.email": AuthorizedUsers.findOne({"_id": id}).email});
 		if (user) {
 			Roles.setUserRoles(user._id, role);
 		}
+	},
+
+	'alerts.setAlert'({type, message, expire}) {
+		authenticate(['admin']);
+		expire = parseInt(expire);
+		check(type, String);
+		check(message, String);
+		check(expire, Number);
+		var expirationDate = new Date();
+		expirationDate.setHours(24 * ++expire, 0, 0, 0);
+		Settings.update({"name": "alert"}, {$set: {"type": type, "message": message, "expire": expirationDate}});
+	},
+
+	'alerts.clearAlert'() {
+		authenticate(['admin']);
+		Settings.update({"name": "alert"}, {$set: {"expire": new Date()}});
 	}
 });

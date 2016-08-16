@@ -9,9 +9,10 @@ export const HomeLayout = ({name, category, content}) => (
 		<div className={name + " " + category}>
 			<header>
 				<Navbar />
+				<Alert />
 				<IntroVideo />
 			</header>
-			
+
 			<main className="container content">
 				{content}
 			</main>

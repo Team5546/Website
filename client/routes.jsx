@@ -11,10 +11,12 @@ import Edit from "./pages/team/Edit.jsx";
 import Editor from "./pages/team/Editor.jsx";
 import Previewer from "./pages/team/Previewer.jsx";
 import Users from "./pages/team/Users.jsx";
+import Alerts from "./pages/team/Alerts.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
 
 Pages = new Mongo.Collection("pages");
+Settings = new Mongo.Collection("settings");
 titleSuffix = " | ARGS Robotics Team";
 
 Meteor.subscribe("editor.getPages");
@@ -122,6 +124,20 @@ FlowRouter.route('/team/users', {
 				name: "users",
 				category: "team",
 				content: (<Users />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
+	}
+});
+
+FlowRouter.route('/team/alerts', {
+	action() {
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "alerts",
+				category: "team",
+				content: (<Alerts />)
 			});
 		} else {
 			FlowRouter.go("/team/login");
