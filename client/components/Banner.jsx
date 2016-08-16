@@ -11,7 +11,7 @@ export default class Banner extends TrackerReact(React.Component) {
 
 		return (
 			<div className="banner">
-				<img src="/res/img/banner.svg" className="shadow" />
+				<img src="/res/img/banner.svg" />
 				<div className="banner-text">
 					<div>{year}</div>
 					<div>{lineOne}</div>
