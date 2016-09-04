@@ -126,5 +126,18 @@ Meteor.methods({
 	'banners.deleteBanner'({id}) {
 		authenticate(['admin']);
 		BannersCollection.remove({"_id": id});
+	},
+
+	'image.upload'({base64, name}) {
+		authenticate(['admin', 'editor']);
+		check(base64, String);
+		check(name, String);
+		Images.insert({"name": name, "image": base64});
+	},
+
+	'image.delete'({name}) {
+		authenticate(['admin', 'editor']);
+		check(name, String);
+		Images.remove({"name": name});
 	}
 });

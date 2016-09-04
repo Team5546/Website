@@ -20,6 +20,7 @@ import {Accounts} from "meteor/accounts-base";
 Pages = new Mongo.Collection("pages");
 Settings = new Mongo.Collection("settings");
 BannersCollection = new Mongo.Collection("banners");
+Images = new Mongo.Collection("images");
 titleSuffix = " | ARGS Robotics Team";
 
 Meteor.subscribe("editor.getPages");
