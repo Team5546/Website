@@ -58,7 +58,7 @@ export default class Banners extends TrackerReact(React.Component) {
 			<div className="banners">
 				<Card title={<TeamTitle />} content={
 					<div>
-						<TeamHeader active="banners"/>
+						<TeamHeader/>
 						<div>
 						<button className="btn btn-primary" onClick={this.addBanner}>Add Banner</button>
 							{banners.map((banner, index)=> {

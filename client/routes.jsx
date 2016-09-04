@@ -13,6 +13,7 @@ import Previewer from "./pages/team/Previewer.jsx";
 import Users from "./pages/team/Users.jsx";
 import Alerts from "./pages/team/Alerts.jsx";
 import Banners from "./pages/team/Banners.jsx";
+import TeamSettings from "./pages/team/TeamSettings.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
 
@@ -154,6 +155,34 @@ FlowRouter.route('/team/banners', {
 				name: "banners",
 				category: "team",
 				content: (<Banners />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
+	}
+});
+
+FlowRouter.route('/team/banners', {
+	action() {
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "banners",
+				category: "team",
+				content: (<Banners />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
+	}
+});
+
+FlowRouter.route('/team/settings', {
+	action() {
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "settings",
+				category: "team",
+				content: (<TeamSettings />)
 			});
 		} else {
 			FlowRouter.go("/team/login");
