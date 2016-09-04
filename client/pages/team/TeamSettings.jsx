@@ -11,12 +11,6 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 		super(props);
 	}
 
-	getBase64() {
-		var reader = new FileReader();
-		reader.readAsDataURL($("#file-upload")[0].files[0]);
-		return reader.result;
-	}
-
 	upload() {
 		var reader = new FileReader();
 		reader.readAsDataURL($("#file-upload")[0].files[0]);
