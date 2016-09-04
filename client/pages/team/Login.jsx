@@ -8,10 +8,6 @@ export default class Login extends TrackerReact(React.Component) {
 		Meteor.loginWithGoogle();
 	}
 
-	loginWithToken() {
-		Meteor.loginWithToken($("input").val());
-	}
-
 	render() {
 		Accounts.onLogin(function () {
 			FlowRouter.go("/team");
@@ -25,12 +21,6 @@ export default class Login extends TrackerReact(React.Component) {
 							Accessing this page requires an approved account. Students must use an args.us or argsrobotics.com email address. Parents and mentors may use their personal emails, but will need to have them input.
 						</div>
 						<a className="btn btn-google-login" onClick={this.loginWithGoogle}><i className="fa fa-google"></i>Sign in with Google</a>
-
-						<div>
-							<br />
-							Alternatively, you may also login with a one-use token if provided with one.<br />
-							<input /><button onClick={this.loginWithToken}>Authenticate Token</button>
-						</div>
 					</div>
 				}/>
 			</div>
