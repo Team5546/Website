@@ -17,7 +17,10 @@ export default class Page extends TrackerReact(React.Component) {
 
 	setClass() {
 		$('.layout').addClass(Pages.findOne({"name": this.props.name}).category);
-		console.log(Pages.findOne({"name": this.props.name}).category);
+	}
+
+	editPage(id) {
+		FlowRouter.go(`/team/preview/${id}`);
 	}
 
 	render() {
@@ -31,8 +34,17 @@ export default class Page extends TrackerReact(React.Component) {
 
 		document.title = page.title + titleSuffix;
 
+		let editBar = null;
+
+		if (Roles.userIsInRole(Accounts.userId(), ['admin', 'editor'])) {
+			editBar = <div>
+				<button className="btn btn-primary" onClick={this.editPage.bind(this, page._id)}>Edit This Page</button>
+			</div>;
+		}
+
 		return (
 			<div>
+				{editBar}
 				{page.cards.map( (card)=>{
 					return <Card key={card.title} title={card.title} content={
 						<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(card.content)}}></div>
