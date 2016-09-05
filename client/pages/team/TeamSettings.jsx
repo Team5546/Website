@@ -3,12 +3,61 @@ import TrackerReact from "meteor/ultimatejs:tracker-react";
 import Card from "../../components/Card.jsx";
 import TeamTitle from "../../components/TeamTitle.jsx";
 import TeamHeader from "../../components/TeamHeader.jsx";
-import DOMPurify from "dompurify";
 
 export default class TeamSettings extends TrackerReact(React.Component) {
 
 	constructor(props) {
 		super(props);
+		Meteor.subscribe("settings.getTeamHomeContent");
+	}
+
+	componentDidUpdate() {
+		this.editPage();
+	}
+
+	componentDidMount() {
+		this.editPage();
+	}
+
+	editPage() {
+		var _this = this;
+
+		$('.editor').summernote({
+			fontNames: ['Open Sans', 'Coo Hew'],
+			fontNamesIgnoreCheck: ['Open Sans', 'Coo Hew']
+		});
+
+		$('.editor').each(function (i, obj) {
+			$('.editor').summernote("code", Settings.findOne({"name": "team-home-content"}).content);
+		});
+	}
+
+	saveChanges() {
+		Meteor.call("settings.updateTeamHomeContent", {
+			"content": $('.editor').summernote('code')
+		}, function (err) {
+			if (err) {
+				Bert.alert({
+					message: "Error",
+					type: "danger",
+					style: "growl-top-right",
+					icon: "fa-exclamation"
+				});
+			} else {
+				Bert.alert({
+					message: "Saved!",
+					type: "success",
+					style: "growl-top-right",
+					icon: "fa-check"
+				});
+			}
+		});
+
+
+	}
+	
+	getTeamHomeContent() {
+		return Settings.findOne({"name": "team-home-content"});
 	}
 
 	upload(event) {
@@ -68,6 +117,11 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 	}
 
 	render() {
+		let teamHome = this.getTeamHomeContent();
+
+		if (!teamHome) {
+			return <div></div>;
+		}
 
 		return (
 			<div className="settings">
@@ -76,6 +130,7 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 						<TeamHeader active="settings"/>
 						<div>
 							<a href="/team/banners" className="btn btn-primary">Edit team banners</a>
+							<hr />
 							<form onSubmit={this.upload.bind(this)}>
 							<h3>Upload an image</h3>
 								<div className="form-group">
@@ -101,6 +156,12 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 								<button onClick={this.deleteImage} className="btn btn-danger">Delete</button>
 							</form>
 						</div>
+
+						<hr />
+
+						<h3>Update team homepage</h3>
+						<div className="editor"></div>
+						<button className="btn btn-success" onClick={this.saveChanges}>Save Changes</button>
 					</div>
 				}/>
 			</div>

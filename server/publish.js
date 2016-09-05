@@ -49,6 +49,16 @@ Meteor.publish("alerts.getAlerts", function() {
 
 
 
+// Settings page
+Meteor.publish("settings.getTeamHomeContent", function() {
+	if (!Roles.userIsInRole(this.userId, ['admin', 'editor', 'mentor', 'parent', 'user'])) {
+		throw new Meteor.Error('not-authorized');
+	}
+	return Settings.find({"name": "team-home-content"});
+});
+
+
+
 // Banners page
 Meteor.publish("banners.getBanners", function() {
 	return BannersCollection.find({}, {sort: {position: -1}});

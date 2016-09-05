@@ -172,5 +172,11 @@ Meteor.methods({
 		authenticate(['admin']);
 		check(id, String);
 		SponsorCollection.remove({"_id": id});
+	},
+
+	'settings.updateTeamHomeContent'({content}) {
+		authenticate(['admin']);
+		check(content, String);
+		Settings.update({"name": "team-home-content"}, {$set: {"content": content}})
 	}
 });
