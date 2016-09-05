@@ -77,7 +77,7 @@ export default class Alerts extends TrackerReact(React.Component) {
 
 						<h3>Set Alert</h3>
 						<form onSubmit={this.setAlert}>
-							Alert type
+							<label>Alert type</label>
 							<div className="form-group">
 								<select className="form-control alert-type">
 									<option value="default">Default (White)</option>
