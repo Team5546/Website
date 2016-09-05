@@ -61,30 +61,6 @@ export default class Home extends TrackerReact(React.Component) {
 						<img src="/res/img/sponsors/sponsors.png" className="img-responsive" />
 						</div>
 					</div>
-					<div style={{paddingTop: '15px'}}>
-						<h2>A special thanks to</h2>
-						<h4>Jen's Cut N Curl</h4>
-						<h4>Spencer Brothers, Inc.</h4>
-						<h4>Battle Boats</h4>
-						<h4>Sidetrack Hair Designs</h4>
-						<br /><h2>And our Donors</h2>
-						<h4>David Aylesworth</h4>
-						<h4>Lanette Battles</h4>
-						<h4>Debra Carlotti</h4>
-						<h4>Susan Coggins</h4>
-						<h4>Stephen Douglas</h4>
-						<h4>Brenda Garrett</h4>
-						<h4>Nadine Hoffman</h4>
-						<h4>Cecil and Linda King</h4>
-						<h4>Joey And M.A.</h4>
-						<h4>Judith Marks</h4>
-						<h4>Scott &amp; Patty Morton</h4>
-						<h4>Steve Mulloy</h4>
-						<h4>Patrice Richman</h4>
-						<h4>Henry Rozycki</h4>
-						<h4>William Wendt</h4>
-						<h4>Kathleen Whittle</h4>
-					</div>
 				</div>
 				}/>
 			</div>
