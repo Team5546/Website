@@ -19,7 +19,26 @@ export default class Navbar extends TrackerReact(React.Component) {
 		}
 	}
 
+	logout() {
+		Meteor.logout();
+	}
+
 	render() {
+		var userName = Meteor.user() ? Meteor.user().profile.name : "";
+
+		let userInfo = null;
+
+		if (Meteor.userId()) {
+			userInfo = <li className="navbar-user-info">
+				<span className="navbar-username">
+					{userName}
+				</span>
+				<span className="navbar-logout">
+					<button className="btn btn-default" onClick={this.logout}>Log Out</button>
+				</span>
+			</li>;
+		}
+
 		return (
 			<nav className="navbar navbar-inverse navbar-fixed-top navbar-maximized">
 				<div className="fit-width">
@@ -35,6 +54,9 @@ export default class Navbar extends TrackerReact(React.Component) {
 					</div>
 					<div id="navbar" className="navbar-collapse collapse">
 						<ul className="nav navbar-nav navbar-right">
+
+							{userInfo}
+
 							<li><a href="/" className="menu-home">Home</a></li>
 							<li className="dropdown menu-about">
 								<a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>

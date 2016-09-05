@@ -7,14 +7,14 @@
 }
 
 .navbar-nav li, .dropdown-menu li a, .dropdown-menu li {
-	font-family: $big-stack !important;
+	font-family: $big-stack;
 	text-transform: uppercase;
 	font-size: 18px;
 	font-weight: 600;
 }
 
 .navbar-nav li {
-	color: white !important;
+	color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -59,6 +59,27 @@
 .fit-width .in, .fit-width .collapsing {
 	background-color: black;
 	opacity: 1;
+}
+
+.navbar-username {
+	text-transform: none !important;
+	font-weight: normal !important;
+	line-height: 20px;
+}
+
+.navbar-logout {
+	margin-left: 10px;
+	text-transform: none !important;
+	font-weight: normal !important;
+	margin-right: 15px;
+	color: black !important;
+	line-height: 20px;
+}
+
+.navbar-user-info {
+	margin-top: 8px;
+	margin-bottom: 15px;
+	font-family: $small-stack !important;
 }
 
 .navbar-maximized {
