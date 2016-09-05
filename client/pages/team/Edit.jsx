@@ -15,21 +15,6 @@ export default class Edit extends TrackerReact(React.Component) {
 		FlowRouter.go("/team/preview/" + $(".input-page").val())
 	}
 
-	deletePage() {
-		if (confirm('Are you sure you want to delete the page "' + $(".input-page option:selected").text() + '"')) {
-			Meteor.call("editor.deletePage", $(".input-page").val(), function(err) {
-				if (!err) {
-					Bert.alert({
-						message: "Page Deleted",
-						type: "success",
-						style: "growl-top-right",
-						icon: "fa-trash"
-					});
-				}
-			});
-		}
-	}
-
 	createPage(event) {
 		if (event) {
 			event.preventDefault();
@@ -74,8 +59,7 @@ export default class Edit extends TrackerReact(React.Component) {
 											})}
 										</select>
 								</div>
-								<button className="btn btn-primary col-xs-9" onClick={this.editPage}>Edit</button>
-								<button className="btn btn-danger col-xs-3" onClick={this.deletePage}>Delete</button>
+								<button className="btn btn-primary" onClick={this.editPage}>Edit</button>
 							</div>
 
 							<form onSubmit={this.createPage} style={{marginTop: "80px"}}>
@@ -85,7 +69,7 @@ export default class Edit extends TrackerReact(React.Component) {
 									<br />
 									<label>Title</label> — This is the user-friendly name that will show up in the window title and should use proper spaces and capitalization.<input className="form-control input-create-title" placeholder="Page title" />
 								</div>
-								<button className="form-control btn btn-primary" onClick={this.createPage}>Create Page</button>
+								<button className="btn btn-primary" onClick={this.createPage}>Create Page</button>
 							</form>
 						</div>
 					</div>

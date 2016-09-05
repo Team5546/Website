@@ -60,3 +60,8 @@ Meteor.publish("banners.getBanners", function() {
 Meteor.publish("sponsors.getSponsors", function() {
 	return SponsorCollection.find({}, {sort: {name: 1}});
 });
+
+// Sponsor images
+Meteor.publish("images.getSponsors", function() {
+	return Images.find({"category": "sponsor"}, {sort: {name: 1}});
+});

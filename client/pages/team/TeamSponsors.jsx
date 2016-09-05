@@ -57,6 +57,7 @@ export default class TeamSponsors extends TrackerReact(React.Component) {
 							</div>
 							<div className="form-group">
 								<select className="form-control new-sponsor-level">
+									<option value="0">0 - Donor</option>
 									<option value="1">1 - Lizard</option>
 									<option value="2">2 - Basilisk</option>
 									<option value="3">3 - Hydra</option>
@@ -75,7 +76,7 @@ export default class TeamSponsors extends TrackerReact(React.Component) {
 						{sponsors.map((sponsor)=> {
 								return (
 									<li className="list-group-item" key={sponsor._id}>
-										{sponsor.level} — <a href={`/team/sponsors/edit/${sponsor._id}`}>{sponsor.name}</a>
+										{sponsor.level == "0" ? "Donor" : sponsor.level} — <a href={`/team/sponsors/edit/${sponsor._id}`}>{sponsor.name}</a>
 									</li>
 								)
 						})}

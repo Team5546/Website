@@ -1,4 +1,5 @@
 import { default as UUID } from "node-uuid";
+var Future = Npm.require( 'fibers/future' );
 
 function authenticate(roles) {
 	if (!Roles.userIsInRole(Meteor.userId(), roles)) {
@@ -128,17 +129,25 @@ Meteor.methods({
 		BannersCollection.remove({"_id": id});
 	},
 
-	'image.upload'({base64, name}) {
+	'image.upload'({base64, name, category}) {
 		authenticate(['admin', 'editor']);
 		check(base64, String);
 		check(name, String);
-		Images.insert({"name": name, "image": base64});
+		check(category, String);
+		Images.insert({"name": name, "category": category, "image": base64});
 	},
 
 	'image.delete'({name}) {
 		authenticate(['admin', 'editor']);
 		check(name, String);
 		Images.remove({"name": name});
+	},
+
+	'image.retrieve'({name}) {
+		check(name, String);
+		var future = new Future();
+		future.return(Images.findOne({"name": name}).image);
+		return future.wait();
 	},
 
 	'sponsor.create'({name, website, level, image}) {

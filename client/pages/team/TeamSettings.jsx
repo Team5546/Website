@@ -11,12 +11,18 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 		super(props);
 	}
 
-	upload() {
+	upload(event) {
+		if (event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+
 		var reader = new FileReader();
 		reader.readAsDataURL($("#file-upload")[0].files[0]);
 		reader.onloadend = function() {
 			Meteor.call("image.upload", {
 				"name": $(".image-upload-name").val(),
+				"category": $(".image-upload-category").val(),
 				"base64": reader.result
 			}, function (err) {
 				if (err) {
@@ -35,6 +41,7 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 
 					$("#file-upload").val("");
 					$(".image-upload-name").val("");
+					$(".image-upload-category").val("");
 					$("#upload-file-info").html("");
 				}
 			});
@@ -69,17 +76,22 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 						<TeamHeader active="settings"/>
 						<div>
 							<a href="/team/banners" className="btn btn-primary">Edit team banners</a>
+							<form onSubmit={this.upload.bind(this)}>
 							<h3>Upload an image</h3>
-							<div className="form-group">
-								<label className="btn btn-default btn-file">
-									Browse <input type="file" id="file-upload" accept="image/*" style={{display: "none"}} onChange={this.updateFileName.bind(this)} />
-								</label>&nbsp;
-								<span className='label label-primary' id="upload-file-info"></span>
-							</div>
-							<div className="form-group">
-								<input type="text" placeholder="Image name (no spaces)" className="image-upload-name form-control" />
-							</div>
-							<button onClick={this.upload} className="btn btn-primary">Upload</button>
+								<div className="form-group">
+									<label className="btn btn-default btn-file">
+										Browse <input type="file" id="file-upload" accept="image/*" style={{display: "none"}} onChange={this.updateFileName.bind(this)} />
+									</label>&nbsp;
+									<span className='label label-primary' id="upload-file-info"></span>
+								</div>
+								<div className="form-group">
+									<input type="text" placeholder="Image name (no spaces)" className="image-upload-name form-control" />
+								</div>
+								<div className="form-group">
+									<input type="text" placeholder="Category (optional)" className="image-upload-category form-control" />
+								</div>
+								<button onClick={this.upload} className="btn btn-primary">Upload</button>
+							</form>
 
 							<form onSubmit={this.deleteImage.bind(this)}>
 								<h3>Delete an image by its name</h3>

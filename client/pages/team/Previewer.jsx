@@ -82,6 +82,21 @@ export default class Editor extends TrackerReact(React.Component) {
 		});
 	}
 
+	deletePage(pageName) {
+		if (confirm('Are you sure you want to delete the page "' + pageName + '"')) {
+			Meteor.call("editor.deletePage", this.props.page, function(err) {
+				if (!err) {
+					Bert.alert({
+						message: "Page Deleted",
+						type: "success",
+						style: "growl-top-right",
+						icon: "fa-trash"
+					});
+				}
+			});
+		}
+	}
+
 	back() {
 		FlowRouter.go("/team/edit");
 	}
@@ -109,10 +124,10 @@ export default class Editor extends TrackerReact(React.Component) {
 							<div className="collapse" id="edit-collapse">
 								<hr />
 								<div className="row">
-									<form className="col-md-12" onSubmit={this.setCategory.bind(this)}>
+									<form className="col-md-6" onSubmit={this.setCategory.bind(this)}>
 										<div className="form-group">
-										<h3>Set Category <span className="label label-info" style={{textTransform: "capitalize"}}>{page.category}</span></h3>
-										This is the navbar item that will be highlighted when on this page.
+											<h3>Set Category <span className="label label-info" style={{textTransform: "capitalize"}}>{page.category}</span></h3>
+											This is the navbar item that will be highlighted when on this page.
 											<select className="form-control input-set-category">
 												<option value="">—</option>
 												<option value="about">About</option>
@@ -123,6 +138,13 @@ export default class Editor extends TrackerReact(React.Component) {
 										</div>
 										<button className="btn btn-default" onClick={this.setCategory.bind(this)}>Set Category</button>
 									</form>
+									<div className="col-md-6">
+										<div className="form-group">
+											<h3>Delete this page</h3>
+											<div style={{marginBottom: "10px"}}>Warning — there is now way to un-delete a page once it is deleted.</div>
+											<button className="btn btn-danger" onClick={this.deletePage.bind(this, page.title)}>Delete Page</button>
+										</div>
+									</div>
 								</div>
 								<div className="row">
 									<form className="col-md-6" onSubmit={this.updateTitle.bind(this)}>
