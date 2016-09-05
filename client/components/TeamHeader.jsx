@@ -10,7 +10,7 @@ export default class TeamHeader extends TrackerReact(React.Component) {
 		let editor = active == "editor" ? "active" : "";
 		let alerts = active == "alerts" ? "active" : "";
 		let users = active == "users" ? "active" : "";
-		let sponsors = active == "sponsors" ? "active" : "";
+		let sponsorEditor = active == "sponsor-editor" ? "active" : "";
 		let settings = active == "settings" ? "active" : "";
 
 		if (Roles.getRolesForUser(Meteor.userId()).indexOf("admin") != -1) {
@@ -20,7 +20,7 @@ export default class TeamHeader extends TrackerReact(React.Component) {
 					<li role="presentation" className={editor}><a href="/team/edit">Page Editor</a></li>
 					<li role="presentation" className={alerts}><a href="/team/alerts">Alerts</a></li>
 					<li role="presentation" className={users}><a href="/team/users">Users</a></li>
-					<li role="presentation" className={sponsors}><a href="/team/sponsors">Sponsors</a></li>
+					<li role="presentation" className={sponsorEditor}><a href="/team/sponsors">Sponsors</a></li>
 					<li role="presentation" className={settings}><a href="/team/settings">Settings</a></li>
 				</ul>
 			)

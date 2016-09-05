@@ -13,6 +13,8 @@ import Previewer from "./pages/team/Previewer.jsx";
 import Users from "./pages/team/Users.jsx";
 import Alerts from "./pages/team/Alerts.jsx";
 import Banners from "./pages/team/Banners.jsx";
+import TeamSponsors from "./pages/team/TeamSponsors.jsx";
+import SponsorEditor from "./pages/team/SponsorEditor.jsx";
 import TeamSettings from "./pages/team/TeamSettings.jsx";
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
@@ -21,6 +23,7 @@ Pages = new Mongo.Collection("pages");
 Settings = new Mongo.Collection("settings");
 BannersCollection = new Mongo.Collection("banners");
 Images = new Mongo.Collection("images");
+SponsorCollection = new Mongo.Collection("sponsors");
 titleSuffix = " | ARGS Robotics Team";
 
 Meteor.subscribe("editor.getPages");
@@ -163,13 +166,27 @@ FlowRouter.route('/team/banners', {
 	}
 });
 
-FlowRouter.route('/team/banners', {
+FlowRouter.route('/team/sponsors', {
 	action() {
 		if (Accounts.userId()) {
 			mount(MainLayout, {
-				name: "banners",
+				name: "team-sponsors",
 				category: "team",
-				content: (<Banners />)
+				content: (<TeamSponsors />)
+			});
+		} else {
+			FlowRouter.go("/team/login");
+		}
+	}
+});
+
+FlowRouter.route('/team/sponsors/edit/:id', {
+	action(params) {
+		if (Accounts.userId()) {
+			mount(MainLayout, {
+				name: "sponsor-editor",
+				category: "team",
+				content: (<SponsorEditor id={params.id}/>)
 			});
 		} else {
 			FlowRouter.go("/team/login");

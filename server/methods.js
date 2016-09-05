@@ -139,5 +139,29 @@ Meteor.methods({
 		authenticate(['admin', 'editor']);
 		check(name, String);
 		Images.remove({"name": name});
+	},
+
+	'sponsor.create'({name, website, level, image}) {
+		authenticate(['admin']);
+		check(name, String);
+		check(website, String);
+		check(level, String);
+		check(image, String);
+		SponsorCollection.insert({"name": name, "website": website, "level": level, "image": image});
+	},
+
+	'sponsor.update'({id, name, website, level, image}) {
+		authenticate(['admin']);
+		check(name, String);
+		check(website, String);
+		check(level, String);
+		check(image, String);
+		SponsorCollection.update({"_id": id}, {$set: {"name": name, "website": website, "level": level, "image": image}});
+	},
+
+	'sponsor.delete'({id}) {
+		authenticate(['admin']);
+		check(id, String);
+		SponsorCollection.remove({"_id": id});
 	}
 });

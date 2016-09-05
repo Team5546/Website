@@ -53,3 +53,10 @@ Meteor.publish("alerts.getAlerts", function() {
 Meteor.publish("banners.getBanners", function() {
 	return BannersCollection.find({}, {sort: {position: -1}});
 });
+
+
+
+// Sponsors
+Meteor.publish("sponsors.getSponsors", function() {
+	return SponsorCollection.find({}, {sort: {name: 1}});
+});
