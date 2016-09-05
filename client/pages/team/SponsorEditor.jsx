@@ -90,12 +90,15 @@ export default class SponsorEditor extends TrackerReact(React.Component) {
 						<h3>Edit Sponsor</h3>
 						<form onSubmit={this.update.bind(this)}>
 							<div className="form-group">
+								Company/organization name or full name of person
 								<input className="form-control sponsor-name" placeholder="Name" type="text" />
 							</div>
 							<div className="form-group">
+								Website
 								<input className="form-control sponsor-website" placeholder="Website" type="text" />
 							</div>
 							<div className="form-group">
+								Sponsor Level
 								<select className="form-control sponsor-level">
 									<option value="1">1 - Lizard</option>
 									<option value="2">2 - Basilisk</option>
@@ -105,6 +108,7 @@ export default class SponsorEditor extends TrackerReact(React.Component) {
 								</select>
 							</div>
 							<div className="form-group">
+								Image link (from image upload in Settings tab)
 								<input className="form-control sponsor-image" placeholder="Image name" type="text" />
 							</div>
 							<button className="btn btn-primary sponsor-submit" onClick={this.update.bind(this)}>Save</button>

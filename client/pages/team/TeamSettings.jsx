@@ -140,10 +140,12 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 									<span className='label label-primary' id="upload-file-info"></span>
 								</div>
 								<div className="form-group">
-									<input type="text" placeholder="Image name (no spaces)" className="image-upload-name form-control" />
+									Image name (no spaces)
+									<input type="text" placeholder="ex. robotics-logo" className="image-upload-name form-control" />
 								</div>
 								<div className="form-group">
-									<input type="text" placeholder="Category (optional)" className="image-upload-category form-control" />
+									Category (Optional)
+									<input type="text" placeholder="ex. sponsor" className="image-upload-category form-control" />
 								</div>
 								<button onClick={this.upload} className="btn btn-primary">Upload</button>
 							</form>
