@@ -178,5 +178,29 @@ Meteor.methods({
 		authenticate(['admin']);
 		check(content, String);
 		Settings.update({"name": "team-home-content"}, {$set: {"content": content}})
+	},
+	
+	'robot.create'({year}) {
+		authenticate(['admin', 'editor']);
+		check(year, String);
+		RobotsCollection.insert({"year": year, "name": "", "description": "", "leftImage": "", "rightImage": "", "centerImage": ""});
+	},
+
+	'robot.update'({id, year, name, description, leftImage, rightImage, centerImage}) {
+		authenticate(['admin', 'editor']);
+		check(id, String);
+		check(year, String);
+		check(name, String);
+		check(description, String);
+		check(leftImage, String);
+		check(rightImage, String);
+		check(centerImage, String);
+		RobotsCollection.update({"_id": id}, {$set: {"year": year, "name": name, "description": description, "leftImage": leftImage, "rightImage": rightImage, "centerImage": centerImage}});
+	},
+
+	'robot.delete'({id}) {
+		authenticate(['admin', 'editor']);
+		check(id, String);
+		RobotsCollection.remove({"_id": id});
 	}
 });

@@ -20,8 +20,6 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 	}
 
 	editPage() {
-		var _this = this;
-
 		$('.editor').summernote({
 			fontNames: ['Open Sans', 'Coo Hew'],
 			fontNamesIgnoreCheck: ['Open Sans', 'Coo Hew']
@@ -129,7 +127,8 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 					<div>
 						<TeamHeader active="settings"/>
 						<div>
-							<a href="/team/banners" className="btn btn-primary">Edit team banners</a>
+							<a href="/team/banners" className="btn btn-primary">Edit team banners</a><br /><br />
+							<a href="/team/robots" className="btn btn-primary">Edit past robots</a>
 							<hr />
 							<form onSubmit={this.upload.bind(this)}>
 							<h3>Upload an image</h3>

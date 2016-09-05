@@ -75,3 +75,8 @@ Meteor.publish("sponsors.getSponsors", function() {
 Meteor.publish("images.getSponsors", function() {
 	return Images.find({"category": "sponsor"}, {sort: {name: 1}});
 });
+
+// Robots
+Meteor.publish("robot.getRobots", function() {
+	return RobotsCollection.find({}, {sort: {year: -1}});
+});
