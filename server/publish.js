@@ -57,11 +57,13 @@ Meteor.publish("settings.getTeamHomeContent", function() {
 	return Settings.find({"name": "team-home-content"});
 });
 
-
+Meteor.publish("settings.getHomepageContent", function() {
+	return Settings.find({"category": "homepage"});
+});
 
 // Banners page
 Meteor.publish("banners.getBanners", function() {
-	return BannersCollection.find({}, {sort: {position: -1}});
+	return BannersCollection.find({});
 });
 
 

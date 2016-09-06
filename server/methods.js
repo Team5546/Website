@@ -179,6 +179,42 @@ Meteor.methods({
 		check(content, String);
 		Settings.update({"name": "team-home-content"}, {$set: {"content": content}})
 	},
+
+	'settings.updateHomepageAboutContent'({content}) {
+		authenticate(['admin', 'editor']);
+		check(content, String);
+		Settings.update({"name": "homepage-about-content"}, {$set: {"content": content}})
+	},
+
+	'settings.updateHomepageFirstContent'({content}) {
+		authenticate(['admin', 'editor']);
+		check(content, String);
+		Settings.update({"name": "homepage-first-content"}, {$set: {"content": content}})
+	},
+
+	'settings.updateHomepageSponsorContent'({content}) {
+		authenticate(['admin', 'editor']);
+		check(content, String);
+		Settings.update({"name": "homepage-sponsors-content"}, {$set: {"content": content}})
+	},
+
+	'settings.setLeftImage'({image}) {
+		authenticate(['admin', 'editor']);
+		check(image, String);
+		Settings.update({"name": "about-left-image"}, {$set: {"image": image}})
+	},
+
+	'settings.setRightImage'({image}) {
+		authenticate(['admin', 'editor']);
+		check(image, String);
+		Settings.update({"name": "about-right-image"}, {$set: {"image": image}})
+	},
+
+	'settings.setSponsorImage'({image}) {
+		authenticate(['admin', 'editor']);
+		check(image, String);
+		Settings.update({"name": "sponsor-image"}, {$set: {"image": image}})
+	},
 	
 	'robot.create'({year}) {
 		authenticate(['admin', 'editor']);
