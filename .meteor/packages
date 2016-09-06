@@ -35,7 +35,6 @@ okgrow:router-autoscroll    # Fix scrolling in flow-router
 themeteorchef:bert          # Notifications
 
 accounts-base
-accounts-ui
 accounts-google
 
 summernote:summernote       # Summernote WYSIWYG HTML editor
