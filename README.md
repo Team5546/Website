@@ -1,6 +1,7 @@
 # ARGS Robotics Team Website
 
 ### To setup
+* Install NodeJS v4 `curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - && sudo apt-get install -y nodejs`
 * Clone this repository
 * [Install Meteor.js](https://www.meteor.com/install)
 * Run `meteor npm install --save react react-dom react-mounter dompurify node-uuid fibers` to install React.
@@ -20,3 +21,7 @@ You are now set to run the website by typing `MONGO_URL=mongodb://localhost:2701
 ### Setting up webserver for production
 * To continue running the website even if it crashes, we need to install Forever, `sudo npm -g install forever`
 * You can now run the website by typing `MONGO_URL=mongodb://localhost:27017/meteor ROOT_URL=https://test.ajsmith.us PORT=8080 forever start main.js`
+* To restore the database files, you need to get access to them. They will not be in this repository since they contain sensitive information.
+* Make sure your mongo instance is using using the wiredTiger engine by following this [article](https://docs.mongodb.com/v3.0/release-notes/3.0-upgrade/).
+* To restore the database, type `mongorestore FOLDER_TO_DATABASE_DUMP`
+You should now have access to the full website with all Mongo collections.
