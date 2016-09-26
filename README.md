@@ -24,4 +24,5 @@ You are now set to run the website by typing `MONGO_URL=mongodb://localhost:2701
 * To restore the database files, you need to get access to them. They will not be in this repository since they contain sensitive information.
 * Make sure your mongo instance is using using the wiredTiger engine by following this [article](https://docs.mongodb.com/v3.0/release-notes/3.0-upgrade/).
 * To restore the database, type `mongorestore FOLDER_TO_DATABASE_DUMP`
+
 You should now have access to the full website with all Mongo collections.
