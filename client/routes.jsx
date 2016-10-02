@@ -5,6 +5,7 @@ import {HomeLayout} from "./layouts/HomeLayout.jsx";
 import Home from "./pages/home/Home.jsx";
 import Robots from "./pages/robots/Robots.jsx";
 import Sponsors from "./pages/sponsors/Sponsors.jsx";
+import SponsorUs from "./pages/sponsors/SponsorUs.jsx";
 import Login from "./pages/team/Login.jsx";
 import Team from "./pages/team/Team.jsx";
 import Edit from "./pages/team/Edit.jsx";
@@ -235,6 +236,16 @@ FlowRouter.route('/team/robots/edit/:id', {
 		} else {
 			FlowRouter.go("/team/login");
 		}
+	}
+});
+
+FlowRouter.route('/sponsor-us', {
+	action() {
+		mount(MainLayout, {
+			name: "sponsor-us",
+			category: "sponsors",
+			content: (<SponsorUs />)
+		});
 	}
 });
 
