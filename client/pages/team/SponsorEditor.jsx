@@ -100,6 +100,7 @@ export default class SponsorEditor extends TrackerReact(React.Component) {
 							<div className="form-group">
 								Sponsor Level
 								<select className="form-control sponsor-level">
+									<option value="0">0 - Donor</option>
 									<option value="1">1 - Lizard</option>
 									<option value="2">2 - Basilisk</option>
 									<option value="3">3 - Hydra</option>
