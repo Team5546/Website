@@ -20,7 +20,7 @@ You are now set to run the website by typing `MONGO_URL=mongodb://localhost:2701
 
 ### Setting up webserver for production
 * To continue running the website even if it crashes, we need to install Forever, `sudo npm -g install forever`
-* You can now run the website by typing `MONGO_URL=mongodb://localhost:27017/meteor ROOT_URL=https://test.ajsmith.us PORT=8080 forever start main.js`
+* You can now run the website by typing `MONGO_URL=mongodb://localhost:27017/meteor ROOT_URL=https://argsrobotics.com PORT=8080 forever start main.js`
 * To restore the database files, you need to get access to them. They will not be in this repository since they contain sensitive information.
 * Make sure your mongo instance is using using the wiredTiger engine by following this [article](https://docs.mongodb.com/v3.0/release-notes/3.0-upgrade/).
 * To restore the database, type `mongorestore FOLDER_TO_DATABASE_DUMP`
