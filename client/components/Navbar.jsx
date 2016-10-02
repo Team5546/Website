@@ -62,19 +62,19 @@ export default class Navbar extends TrackerReact(React.Component) {
 								<a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
 								<ul className="dropdown-menu">
 									<li><a href="/page/about">Our Team</a></li>
-									<li><a href="#">Team Structure</a></li>
+									<li><a href="/page/team-structure">Team Structure</a></li>
 									<li><a href="/about/robots/">Robots</a></li>
-									<li><a href="#">School</a></li>
+									<li><a href="/page/school">School</a></li>
 									<li><a href="/page/website">Website</a></li>
-									<li><a href="#">Contact Us</a></li>
+									<li><a href="/page/contact">Contact Us</a></li>
 								</ul>
 							</li>
 							<li className="dropdown menu-resources">
 								<a href="/resources/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
 								<ul className="dropdown-menu">
-									<li><a href="#">Manuals and Guides</a></li>
-									<li><a href="#">Software</a></li>
-									<li><a href="#">Media Kit</a></li>
+									<li><a href="/page/manuals-and-guides">Manuals and Guides</a></li>
+									<li><a href="/page/software">Software</a></li>
+									<li><a href="/page/media-kit">Media Kit</a></li>
 								</ul>
 							</li>
 							<li className="menu-sponsors"><a href="/sponsors">Sponsors</a></li>

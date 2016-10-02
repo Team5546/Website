@@ -189,7 +189,14 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 	}
 }
 
+/*Keep media images from being too large*/
+.media-kit {
+	max-height: 200px;
+}
 
+.center {
+	text-align: center;
+}
 
 .loader {
 	margin: 60px auto;
