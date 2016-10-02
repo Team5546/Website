@@ -80,6 +80,8 @@ export default class SponsorEditor extends TrackerReact(React.Component) {
 			)
 		}
 
+		let sponsorImage = sponsor.image ? <img src={"/static/" + sponsor.image} className="sponsor img-responsive center-block" /> : "";
+
 		return (
 			<div className="sponsor-editor">
 				<Card title={<TeamTitle />} content={
@@ -114,6 +116,8 @@ export default class SponsorEditor extends TrackerReact(React.Component) {
 							</div>
 							<button className="btn btn-primary sponsor-submit" onClick={this.update.bind(this)}>Save</button>
 						</form>
+
+						{sponsorImage}
 
 						<hr />
 
