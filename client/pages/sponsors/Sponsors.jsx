@@ -15,9 +15,8 @@ export default class Sponsors extends TrackerReact(React.Component) {
 		let sponsors = SponsorCollection.find({}, {sort: {level: -1, name: 1}});
 		let lowLevelSponsors = SponsorCollection.find({"level": "1"}, {sort: {name: 1}});
 		let donors = SponsorCollection.find({"level": "0"}, {sort: {name: 1}});
-		let images = Images.find({"category": "sponsor"});
 
-		if (!sponsors || !images) {
+		if (!sponsors) {
 			return <div></div>;
 		}
 

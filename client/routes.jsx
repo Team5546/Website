@@ -24,7 +24,6 @@ import {Accounts} from "meteor/accounts-base";
 Pages = new Mongo.Collection("pages");
 Settings = new Mongo.Collection("settings");
 BannersCollection = new Mongo.Collection("banners");
-Images = new Mongo.Collection("images");
 SponsorCollection = new Mongo.Collection("sponsors");
 RobotsCollection = new Mongo.Collection("robots");
 titleSuffix = " | ARGS Robotics Team";

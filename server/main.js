@@ -4,7 +4,6 @@ Pages = new Mongo.Collection("pages");
 AuthorizedUsers = new Mongo.Collection("authorizedUsers");
 Settings = new Mongo.Collection("settings");
 BannersCollection = new Mongo.Collection("banners");
-Images = new Mongo.Collection("images");
 SponsorCollection = new Mongo.Collection("sponsors");
 RobotsCollection = new Mongo.Collection("robots");
 
