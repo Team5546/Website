@@ -10,6 +10,5 @@ To Do List
 * Add media kit page
 * Add links to social media and youtube
 * Add PayPal donate button
-* Create a new system for image uploading
 * Create a page or subdomain for the booster club
 * Fix homepage layout on iOS
