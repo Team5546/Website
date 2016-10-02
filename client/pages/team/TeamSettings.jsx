@@ -210,7 +210,6 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 		reader.onloadend = function() {
 			Meteor.call("image.upload", {
 				"name": $(".image-upload-name").val(),
-				"category": $(".image-upload-category").val(),
 				"base64": reader.result
 			}, function (err) {
 				if (err) {
@@ -229,7 +228,6 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 
 					$("#file-upload").val("");
 					$(".image-upload-name").val("");
-					$(".image-upload-category").val("");
 					$("#upload-file-info").html("");
 				}
 			});
@@ -281,12 +279,8 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 									<span className='label label-primary' id="upload-file-info"></span>
 								</div>
 								<div className="form-group">
-									Image name (no spaces)
+									Image name (no spaces or file extensions). Image will upload as this name + .png/.jpg/.svg
 									<input type="text" placeholder="ex. robotics-logo" className="image-upload-name form-control" />
-								</div>
-								<div className="form-group">
-									Category (Optional)
-									<input type="text" placeholder="ex. sponsor" className="image-upload-category form-control" />
 								</div>
 								<button onClick={this.upload} className="btn btn-primary">Upload</button>
 							</form>
@@ -294,7 +288,7 @@ export default class TeamSettings extends TrackerReact(React.Component) {
 							<form onSubmit={this.deleteImage.bind(this)}>
 								<h3>Delete an image by its name</h3>
 								<div className="form-group">
-									<input type="text" placeholder="Image name" className="image-delete-name form-control" />
+									<input type="text" placeholder="Ex. robotics-logo.jpg" className="image-delete-name form-control" />
 								</div>
 								<button onClick={this.deleteImage} className="btn btn-danger">Delete</button>
 							</form>

@@ -1,6 +1,7 @@
 import { default as UUID } from "node-uuid";
 var base64Img = Npm.require('base64-img');
 var sanitize = Npm.require("sanitize-filename");
+var fs = Npm.require('fs');
 
 function authenticate(roles) {
 	if (!Roles.userIsInRole(Meteor.userId(), roles)) {
@@ -130,18 +131,17 @@ Meteor.methods({
 		BannersCollection.remove({"_id": id});
 	},
 
-	'image.upload'({base64, name, category}) {
+	'image.upload'({base64, name}) {
 		authenticate(['admin', 'editor']);
 		check(base64, String);
 		check(name, String);
-		check(category, String);
 		base64Img.img(base64, Meteor.absolutePath + '/public/static/', sanitize(name), function(err, filepath) {});
 	},
 
 	'image.delete'({name}) {
 		authenticate(['admin', 'editor']);
 		check(name, String);
-		Images.remove({"name": name});
+		fs.unlinkSync(Meteor.absolutePath + '/public/static/' + sanitize(name));
 	},
 
 	'sponsor.create'({name, website, level, image}) {
