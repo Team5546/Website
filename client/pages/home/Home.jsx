@@ -20,24 +20,6 @@ export default class Home extends TrackerReact(React.Component) {
 			return (
 				<div className="loader">Loading...</div>
 			)
-		} else {
-			Meteor.call("image.retrieve", {
-				"name": Settings.findOne({"name": "about-left-image"}).image
-			}, function(error, response) {
-				$(".team-pics-left").attr("src", response);
-			});
-
-			Meteor.call("image.retrieve", {
-				"name": Settings.findOne({"name": "about-right-image"}).image
-			}, function(error, response) {
-				$(".team-pics-right").attr("src", response);
-			});
-
-			Meteor.call("image.retrieve", {
-				"name": Settings.findOne({"name": "sponsor-image"}).image
-			}, function(error, response) {
-				$(".sponsor-image").attr("src", response);
-			});
 		}
 
 		return (
@@ -57,10 +39,10 @@ export default class Home extends TrackerReact(React.Component) {
 						<p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(Settings.findOne({"name": "homepage-about-content"}).content)}}></p>
 						<div className="row team-pics">
 							<div className="col-xs-6 team-pics l-pic">
-								<img className="img-responsive img-thumbnail team-pics team-pics-left" />
+								<img src={"/static/" + Settings.findOne({"name": "about-left-image"}).image} className="img-responsive img-thumbnail team-pics team-pics-left" />
 							</div>
 							<div className="col-xs-6 team-pics r-pic">
-								<img className="img-responsive img-thumbnail team-pics team-pics-right" />
+								<img src={"/static/" + Settings.findOne({"name": "about-right-image"}).image} className="img-responsive img-thumbnail team-pics team-pics-right" />
 							</div>
 						</div>
 					</div>
@@ -79,7 +61,7 @@ export default class Home extends TrackerReact(React.Component) {
 					</div>
 					<div className="row">
 					<div className="col-xs-12">
-						<img className="sponsor-image img-responsive" />
+						<img src={"/static/" + Settings.findOne({"name": "sponsor-image"}).image} className="sponsor-image img-responsive" />
 						</div>
 					</div>
 				</div>

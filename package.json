@@ -5,13 +5,15 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "base64-img": "^1.0.3",
     "dompurify": "^0.8.2",
     "fibers": "^1.0.14",
     "meteor-node-stubs": "~0.2.0",
     "node-uuid": "^1.4.7",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-mounter": "^1.2.0"
+    "react-mounter": "^1.2.0",
+    "sanitize-filename": "^1.6.1"
   },
   "version": "1.0.0",
   "main": "index.js",

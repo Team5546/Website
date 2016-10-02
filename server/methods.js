@@ -1,5 +1,6 @@
 import { default as UUID } from "node-uuid";
-var Future = Npm.require( 'fibers/future' );
+var base64Img = Npm.require('base64-img');
+var sanitize = Npm.require("sanitize-filename");
 
 function authenticate(roles) {
 	if (!Roles.userIsInRole(Meteor.userId(), roles)) {
@@ -134,20 +135,13 @@ Meteor.methods({
 		check(base64, String);
 		check(name, String);
 		check(category, String);
-		Images.insert({"name": name, "category": category, "image": base64});
+		base64Img.img(base64, Meteor.absolutePath + '/public/static/', sanitize(name), function(err, filepath) {});
 	},
 
 	'image.delete'({name}) {
 		authenticate(['admin', 'editor']);
 		check(name, String);
 		Images.remove({"name": name});
-	},
-
-	'image.retrieve'({name}) {
-		check(name, String);
-		var future = new Future();
-		future.return(Images.findOne({"name": name}).image);
-		return future.wait();
 	},
 
 	'sponsor.create'({name, website, level, image}) {

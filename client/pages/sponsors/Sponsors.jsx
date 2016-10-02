@@ -32,12 +32,6 @@ export default class Sponsors extends TrackerReact(React.Component) {
 				<div className="sponsors-left col-sm-6">
 
 					{sponsors.map((sponsor)=> {
-						Meteor.call("image.retrieve", {
-							"name": sponsor.image
-						}, function(error, response) {
-							$("#" + sponsor._id).attr("src", response);
-						});
-
 						if (sponsor.level <= 1) {
 							return;
 						}
@@ -45,7 +39,7 @@ export default class Sponsors extends TrackerReact(React.Component) {
 						return (
 							<Card key={sponsor._id} content={
 								<div>
-									<a href={sponsor.website}><img id={sponsor._id} alt={sponsor.name} className="sponsor img-responsive center-block" /></a>
+									<a href={sponsor.website}><img id={sponsor._id} alt={sponsor.name} src={"/static/" + sponsor.image} className="sponsor img-responsive center-block" /></a>
 								</div>
 							}/>
 						)

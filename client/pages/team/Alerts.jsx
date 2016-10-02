@@ -77,7 +77,7 @@ export default class Alerts extends TrackerReact(React.Component) {
 
 						<h3>Set Alert</h3>
 						<form onSubmit={this.setAlert}>
-							<label>Alert type</label>
+							Alert type
 							<div className="form-group">
 								<select className="form-control alert-type">
 									<option value="default">Default (White)</option>
@@ -87,11 +87,11 @@ export default class Alerts extends TrackerReact(React.Component) {
 								</select>
 							</div>
 							<div className="form-group">
-								<label>Message</label>
+								Message
 								<input type="text" className="form-control alert-message"/>
 							</div>
 							<div className="form-group">
-								<label>Days alert should stay active (0 means it will expire at midnight today)</label>
+								Days alert should stay active (0 means it will expire at midnight today)
 								<input type="number" min="0" max="30" className="form-control alert-days"/>
 							</div>
 							<div className="form-group">
