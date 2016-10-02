@@ -70,6 +70,7 @@ export default class SponsorUs extends TrackerReact(React.Component) {
 						<div className="sponsor-benefits">
 							<h2 className="sponsor-benefits-name"></h2>
 							<ul>
+								<li className="1 2 3 4 5">Our appreciation and thanks for supporting our team!</li>
 								<li className="1 2 3 4 5">Name on our website and social media</li>
 								<li className="2">Small logo on team t-shirts</li>
 								<li className="3">Medium logo on team t-shirts</li>
@@ -81,8 +82,7 @@ export default class SponsorUs extends TrackerReact(React.Component) {
 								<li className="5">Large logo displayed prominently on robot</li>
 								<li className="4 5">T-shirts shipped to sponsor</li>
 								<li className="4 5">Sponsor's name is announced at events</li>
-								<li className="5">Within 50 miles from us, we'll take our robot directtly to your company/organization for a demonstration</li>
-								<li className="1 2 3 4 5">Our appreciation and thanks for supporting our team!</li>
+								<li className="5">Within 50 miles from us, we'll take our robot directly to your company/organization for a demonstration</li>
 							</ul>
 						</div>
 					</div>
