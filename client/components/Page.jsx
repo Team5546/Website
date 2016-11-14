@@ -47,7 +47,7 @@ export default class Page extends TrackerReact(React.Component) {
 				{editBar}
 				{page.cards.map( (card)=>{
 					return <Card key={card.title} title={card.title} content={
-						<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(card.content)}}></div>
+						<div dangerouslySetInnerHTML={{__html: card.content}}></div>
 					}/>
 				} )}
 				{this.setClass()}
