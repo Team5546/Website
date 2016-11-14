@@ -32,3 +32,12 @@
 .home-alert-success {
 	background-color: rgba(80, 195, 90, 0.7);
 }
+
+.home-alert a {
+	color: white;
+	text-decoration: underline;
+}
+
+.home-alert a:hover, .home-alert a:focus, .home-alert a:active {
+	color: lightgray;
+}
