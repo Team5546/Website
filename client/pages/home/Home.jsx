@@ -22,6 +22,9 @@ export default class Home extends TrackerReact(React.Component) {
 			)
 		}
 
+		var metaInfo = {name: "description", content: Settings.findOne({"name": "homepage-about-content"}).content.substring(0, 150) + "..."};
+		DocHead.addMeta(metaInfo);
+
 		return (
 			<div>
 				<div className="banner-container">
