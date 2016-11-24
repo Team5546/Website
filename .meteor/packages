@@ -40,3 +40,5 @@ accounts-google
 summernote:summernote       # Summernote WYSIWYG HTML editor
 
 ostrio:meteor-root
+
+anthonycomito:loading-screen

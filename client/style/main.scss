@@ -240,3 +240,14 @@ p, main ul, main ol, main li, main a, html, .note-editable {
 		transform: rotate(360deg);
 	}
 }
+
+
+
+// Loading spinner for entire page
+#loading {
+	z-index: 10000 !important;
+}
+
+#loading img {
+	content:url("/images/ripple.gif");
+}
