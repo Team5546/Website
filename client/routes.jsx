@@ -250,6 +250,9 @@ FlowRouter.route('/sponsor-us', {
 });
 
 FlowRouter.route('/page/:name', {
+	subscriptions: function(params, queryParams) {
+		this.register('pageSubscription', Meteor.subscribe("editor.getPageByName", params.name));
+	},
 	action(params) {
 		mount(MainLayout, {
 			name: "page",

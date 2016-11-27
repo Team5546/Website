@@ -7,9 +7,9 @@ export default class Page extends TrackerReact(React.Component) {
 
 	constructor(props) {
 		super(props);
-
 		Meteor.subscribe("editor.getPageByName", this.props.name);
 	}
+
 
 	getPage(name) {
 		return Pages.findOne({"name": name});
