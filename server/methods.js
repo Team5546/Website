@@ -113,7 +113,7 @@ Meteor.methods({
 
 	'alerts.clearAlert'() {
 		authenticate(['admin']);
-		Settings.update({"name": "alert"}, {$set: {"expire": new Date()}});
+		Settings.update({"name": "alert"}, {$set: {"expire": new Date() - 60000 }});
 	},
 
 	'banners.addBanner'() {
