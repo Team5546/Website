@@ -35,19 +35,19 @@ export default class Robots extends TrackerReact(React.Component) {
 								<div className="row robot-pics">
 									<div className="col-xs-6 robot-pics l-pic">
 										<img id={`${robot._id}-left`}
-										src={"/static/" + robot.leftImage}
+										src={"/static/images/" + robot.leftImage}
 										className="img-responsive robot-pics shadow" />
 									</div>
 									<div className="col-xs-6 robot-pics r-pic">
 										<img id={`${robot._id}-right`}
-										src={"/static/" + robot.rightImage}
+										src={"/static/images/" + robot.rightImage}
 										className="img-responsive robot-pics shadow" />
 									</div>
 								</div>
 								<div className="row robot-pics">
 									<div className="col-xs-12 robot-pics" style={{paddingTop: 0, paddingBottom: 0}}>
 										<img id={`${robot._id}-center`}
-										src={"/static/" + robot.centerImage}
+										src={"/static/images/" + robot.centerImage}
 										className="img-responsive robot-pics shadow" />
 									</div>
 								</div>
