@@ -42,10 +42,10 @@ export default class Home extends TrackerReact(React.Component) {
 						<p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(Settings.findOne({"name": "homepage-about-content"}).content)}}></p>
 						<div className="row team-pics">
 							<div className="col-xs-6 team-pics l-pic">
-								<img src={"/static/images/" + Settings.findOne({"name": "about-left-image"}).image} className="img-responsive img-thumbnail team-pics team-pics-left" />
+								<img src={"https://static.argsrobotics.com/" + Settings.findOne({"name": "about-left-image"}).image} className="img-responsive img-thumbnail team-pics team-pics-left" />
 							</div>
 							<div className="col-xs-6 team-pics r-pic">
-								<img src={"/static/images/" + Settings.findOne({"name": "about-right-image"}).image} className="img-responsive img-thumbnail team-pics team-pics-right" />
+								<img src={"https://static.argsrobotics.com/" + Settings.findOne({"name": "about-right-image"}).image} className="img-responsive img-thumbnail team-pics team-pics-right" />
 							</div>
 						</div>
 					</div>
@@ -64,7 +64,7 @@ export default class Home extends TrackerReact(React.Component) {
 					</div>
 					<div className="row">
 					<div className="col-xs-12">
-						<img src={"/static/images/" + Settings.findOne({"name": "sponsor-image"}).image} className="sponsor-image img-responsive" />
+						<img src={"https://static.argsrobotics.com/" + Settings.findOne({"name": "sponsor-image"}).image} className="sponsor-image img-responsive" />
 						</div>
 					</div>
 				</div>
