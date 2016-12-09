@@ -135,13 +135,13 @@ Meteor.methods({
 		authenticate(['admin', 'editor']);
 		check(base64, String);
 		check(name, String);
-		base64Img.img(base64, Meteor.absolutePath + '/public/static/images/', sanitize(name), function(err, filepath) {});
+		base64Img.img(base64, '/var/www/build/bundle/programs/web.browser/app/static/images/', sanitize(name), function(err, filepath) {});
 	},
 
 	'image.delete'({name}) {
 		authenticate(['admin', 'editor']);
 		check(name, String);
-		fs.unlinkSync(Meteor.absolutePath + '/public/static/images/' + sanitize(name));
+		fs.unlinkSync('/var/www/build/bundle/programs/web.browser/app/static/images/' + sanitize(name));
 	},
 
 	'sponsor.create'({name, website, level, image}) {
