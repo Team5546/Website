@@ -35,13 +35,23 @@ export default class Sponsors extends TrackerReact(React.Component) {
 							return;
 						}
 
-						return (
-							<Card key={sponsor._id} content={
+						if (sponsor.image) {
+							return (
+								<Card key={sponsor._id} content={
 								<div>
 									<a href={sponsor.website}><img id={sponsor._id} alt={sponsor.name} src={"https://static.argsrobotics.com/" + sponsor.image} className="sponsor img-responsive center-block" /></a>
 								</div>
 							}/>
-						)
+							)
+						} else {
+							return (
+								<Card key={sponsor._id} content={
+								<div>
+									<a href={sponsor.website}>{sponsor.name}</a>
+								</div>
+							}/>
+							)
+						}
 					})}
 				</div>
 
