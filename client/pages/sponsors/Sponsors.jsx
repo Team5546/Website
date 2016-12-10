@@ -43,11 +43,19 @@ export default class Sponsors extends TrackerReact(React.Component) {
 								</div>
 							}/>
 							)
+						} else if (sponsor.website) {
+							return (
+								<Card key={sponsor._id} content={
+								<div>
+									<a href={sponsor.website}><h3>{sponsor.name}</h3></a>
+								</div>
+							}/>
+							)
 						} else {
 							return (
 								<Card key={sponsor._id} content={
 								<div>
-									<a href={sponsor.website}>{sponsor.name}</a>
+									<h3>{sponsor.name}</h3>
 								</div>
 							}/>
 							)
