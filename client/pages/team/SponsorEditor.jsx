@@ -80,7 +80,7 @@ export default class SponsorEditor extends TrackerReact(React.Component) {
 			)
 		}
 
-		let sponsorImage = sponsor.image ? <img src={"/static/" + sponsor.image} className="sponsor img-responsive center-block" /> : "";
+		let sponsorImage = sponsor.image ? <img src={"https://static.argsrobotics.com/" + sponsor.image} className="sponsor img-responsive center-block" /> : "";
 
 		return (
 			<div className="sponsor-editor">
