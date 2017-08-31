@@ -7,6 +7,7 @@ import Robots from "./pages/robots/Robots.jsx";
 import Sponsors from "./pages/sponsors/Sponsors.jsx";
 import SponsorUs from "./pages/sponsors/SponsorUs.jsx";
 import Login from "./pages/team/Login.jsx";
+import LoginFailed from "./pages/team/LoginFailed.jsx";
 import Team from "./pages/team/Team.jsx";
 import Edit from "./pages/team/Edit.jsx";
 import Editor from "./pages/team/Editor.jsx";
@@ -71,6 +72,16 @@ FlowRouter.route('/team/login', {
 	}
 });
 
+FlowRouter.route('/team/loginfailed', {
+	action() {
+		mount(MainLayout, {
+			name: "login-failed",
+			category: "team",
+			content: (<LoginFailed />)
+		});
+	}
+});
+
 FlowRouter.route('/team', {
 	action() {
 		if (Accounts.userId()) {
@@ -123,7 +134,7 @@ FlowRouter.route('/team/preview/:page', {
 			});
 		} else {
 			FlowRouter.go("/team/login");
-		} 
+		}
 	}
 });
 
