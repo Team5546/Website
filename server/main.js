@@ -30,7 +30,8 @@ Accounts.validateLoginAttempt(function(info) {
 
 function userIsValid(user) {
 	var authUser = AuthorizedUsers.findOne({"email" : user.services.google.email});
-	if(authUser) {
+	console.log(authUser)
+	if(authUser !== null) {
 		return true;
 	} else {
 		FlowRouter.go("team/loginfailed");
