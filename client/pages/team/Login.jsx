@@ -5,7 +5,11 @@ import Card from "../../components/Card.jsx";
 export default class Login extends TrackerReact(React.Component) {
 
 	loginWithGoogle() {
-		Meteor.loginWithGoogle();
+		Meteor.loginWithGoogle({}, function(error) {
+			if (error) {
+        FlowRouter.go("/team/loginfailed");
+      }
+		});
 	}
 
 	render() {
