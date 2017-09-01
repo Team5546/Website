@@ -29,9 +29,18 @@ Accounts.validateLoginAttempt(function(info) {
 });
 
 function userIsValid(user) {
-	var authUser = AuthorizedUsers.findOne({"email" : user.services.google.email});
-	console.log(authUser)
-	if(authUser !== null) {
+	var authUser = AuthorizedUsers.findOne({"email" : user.services.google.email}, function(err, result) {
+    if (err) { /* handle err */ }
+    if (result) {
+        // we have a result
+				return true;
+    } else {
+        // we don't
+				FlowRouter.go("team/loginfailed");
+				return false;
+    }
+});
+	if(authUser) {
 		return true;
 	} else {
 		FlowRouter.go("team/loginfailed");
