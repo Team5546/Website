@@ -31,7 +31,7 @@ export default class Robots extends TrackerReact(React.Component) {
 						<div key={robot._id}>
 							<Card title={`${robot.year} - "${robot.name}"`} content={
 							<div>
-								<p>{DOMPurify.sanitize(robot.description)}</p>
+								<p dangerouslySetInnerHTML={DOMPurify.sanitize(robot.description)}></p>
 								<div className="row robot-pics">
 									<div className="col-xs-6 robot-pics l-pic">
 										<img id={`${robot._id}-left`}
