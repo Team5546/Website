@@ -29,21 +29,11 @@ Accounts.validateLoginAttempt(function(info) {
 });
 
 function userIsValid(user) {
-	var authUser = AuthorizedUsers.findOne({"email" : user.services.google.email}, function(err, result) {
-    if (err) { /* handle err */ }
-    if (result) {
-        // we have a result
-				return true;
-    } else {
-        // we don't
-				FlowRouter.go("team/loginfailed");
-				return false;
-    }
-});
+	var authUser = AuthorizedUsers.findOne({"email" : user.services.google.email});
 	if(authUser) {
 		return true;
 	} else {
-		FlowRouter.go("team/loginfailed");
+		FlowRouter.go("/team/loginfailed");
 		return false;
 	}
 }
