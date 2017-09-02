@@ -20,6 +20,7 @@ import SponsorEditor from "./pages/team/SponsorEditor.jsx";
 import TeamSettings from "./pages/team/TeamSettings.jsx";
 import TeamRobots from "./pages/team/TeamRobots.jsx";
 import EditRobot from "./pages/team/EditRobot.jsx";
+import NotFound from "./pages/NotFound.jsx"
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
 
@@ -272,9 +273,18 @@ FlowRouter.route('/page/:name', {
 	}
 });
 
+FlowRouter.route('/404', {
+	action() {
+		mount(MainLayout, {
+			name: "404",
+			content: (<NotFound />)
+		})
+	}
+})
+
 FlowRouter.notFound = {
 	action() {
-		FlowRouter.go("/");
+		FlowRouter.go("/404");
 	}
 };
 
