@@ -92,7 +92,7 @@ export default class SponsorUs extends TrackerReact(React.Component) {
 				<Card title="Donate" content={
 					<div>
 						<p>
-							If you would like to easily donate to our team, you may do so via PayPal with the button below, or you can contact us at the email, phone, or address listed in the <a href="/page/contact">About -> Contact Us</a> page.
+							If you would like to easily donate to our team, you may do so via PayPal with the button below, or you can contact us at the email, phone, or address listed in the <a href="/page/contact">About <i className="fa fa-long-arrow-right"></i> Contact Us</a> page.
 						</p>
 						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 							<input type="hidden" name="cmd" value="_s-xclick" />
