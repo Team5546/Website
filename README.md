@@ -25,4 +25,8 @@ You are now set to run the website by typing `MONGO_URL=mongodb://localhost:2701
 * Make sure your mongo instance is using using the wiredTiger engine by following this [article](https://docs.mongodb.com/v3.0/release-notes/3.0-upgrade/).
 * To restore the database, type `mongorestore FOLDER_TO_DATABASE_DUMP`
 
-You should now have access to the full website with all Mongo collections.
+### Managing the production webserver
+There are multiple management shell scripts in the home folder `(/home/webmaster/)`. To run these scripts, just execute them like any other shell script (ex. `./update.sh`). Do NOT run these scripts as root or with sudo. This may cause the web server to crash and there will be a mess. Just run them as the normal webmaster user.
+* start.sh - Starts the web server if not already running. This keeps the server running and restarts it if there is a crash.
+* stop.sh - Forcibly stops the web server.
+* update.sh - Updates the server with the current contents of this GitHub repo and restarts the server. Commit any changes to this repo (after developing and testing locally) and then run this script. This is the only way that the server's web content should be updated.
