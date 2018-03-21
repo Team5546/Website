@@ -70,7 +70,7 @@ export default class Home extends TrackerReact(React.Component) {
 						</form>
 						<br/>
 						<p><a href="https://smile.amazon.com/ch/81-2571365">Please also add us as your charity on Amazon Smile!</a> By shopping at smile.amazon.com, Amazon will donate part of their profits from your purchase to our robotics team!</p>
-						<a href="https://smile.amazon.com/ch/81-2571365"><img src="https://static.argsrobotics.com/amazonsmile.png" /></a>
+						<a href="https://smile.amazon.com/ch/81-2571365"><img className="img-responsive" src="https://static.argsrobotics.com/amazonsmile.png" /></a>
 					</div>
 				}/>
 
