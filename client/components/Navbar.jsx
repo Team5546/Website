@@ -86,6 +86,7 @@ export default class Navbar extends TrackerReact(React.Component) {
 								</ul>
 							</li>
 							<li className="menu-team"><a href="/team">Team</a></li>
+							<li className="menu-donate"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KL3EVW5DDECVU">Donate</a></li>
 						</ul>
 					</div>
 				</div>

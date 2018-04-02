@@ -59,6 +59,15 @@ export default class SponsorUs extends TrackerReact(React.Component) {
 	render() {
 		return (
 			<div>
+				<Card title="Donate Now!" content={
+					<div>
+						<p>
+							If you would like to easily donate to our team, you may do so via PayPal with the button below, or you can contact us at the email, phone, or address listed in the <a href="/page/contact">About <i className="fa fa-long-arrow-right"></i> Contact Us</a> page.
+						</p>
+						<a className="responsive-donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KL3EVW5DDECVU">Donate</a>
+					</div>
+				}/>
+
 				<Card title="Become a Sponsor" content={
 					<div>
 						<p>
@@ -89,24 +98,10 @@ export default class SponsorUs extends TrackerReact(React.Component) {
 					</div>
 				}/>
 
-				<Card title="Donate" content={
-					<div>
-						<p>
-							If you would like to easily donate to our team, you may do so via PayPal with the button below, or you can contact us at the email, phone, or address listed in the <a href="/page/contact">About <i className="fa fa-long-arrow-right"></i> Contact Us</a> page.
-						</p>
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-							<input type="hidden" name="cmd" value="_s-xclick" />
-							<input type="hidden" name="hosted_button_id" value="KL3EVW5DDECVU" />
-							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-							<img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-						</form>
-					</div>
-				}/>
-
 				<Card title="Amazon Smile" content={
 					<div>
 						<p><a href="https://smile.amazon.com/ch/81-2571365">Please also add us as your charity on Amazon Smile!</a> By shopping at smile.amazon.com, Amazon will donate part of their profits from your purchase to our robotics team!</p>
-						<a href="https://smile.amazon.com/ch/81-2571365"><img src="https://static.argsrobotics.com/amazonsmile.png" /></a>
+						<a href="https://smile.amazon.com/ch/81-2571365"><img className="img-responsive" src="https://static.argsrobotics.com/amazonsmile.png" /></a>
 					</div>
 				}/>
 			</div>
