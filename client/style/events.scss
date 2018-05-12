@@ -1,0 +1,59 @@
+/* CSS declarations go here */
+@import "variables";
+@import "mixins";
+
+.event {
+  .address {
+    font-size: .8em;
+    display: inline-block;
+    padding: 10px 15px;
+  }
+  .no-matches {
+    text-align: center;
+  }
+  .match-container {
+    width: 50%;
+    padding: 5px;
+    display: inline-block;
+  }
+  .match {
+    border: 1px solid #ddd;
+    width: 100%;
+    text-align: center;
+    margin: 5px;
+    th {
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    td, th {
+      border: 1px solid #ddd;
+      width: 25%;
+    }
+    .match-info {
+      i {
+        color: black;
+      }
+    }
+    .match-team-blue {
+      background-color: #eef;
+    }
+    .match-score-blue {
+      background-color: #ddf;
+    }
+    .match-team-red {
+      background-color: #fee;
+    }
+    .match-score-red {
+      background-color: #fdd;
+    }
+    .winner {
+      font-weight: 600;
+    }
+    .match-team-blue, .match-score-blue, .match-team-red, .match-score-red {
+      padding: 5px;
+    }
+    .our-team {
+      text-decoration: underline;
+    }
+  }
+}

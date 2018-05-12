@@ -23,6 +23,7 @@ import EditRobot from "./pages/team/EditRobot.jsx";
 import NotFound from "./pages/NotFound.jsx"
 import Page from "./components/Page.jsx";
 import {Accounts} from "meteor/accounts-base";
+import Events from "./pages/events/Events.jsx";
 
 Pages = new Mongo.Collection("pages");
 Settings = new Mongo.Collection("settings");
@@ -257,6 +258,16 @@ FlowRouter.route('/sponsor-us', {
 			name: "sponsor-us",
 			category: "sponsors",
 			content: (<SponsorUs />)
+		});
+	}
+});
+
+FlowRouter.route('/events', {
+	action() {
+		mount(MainLayout, {
+			name: "events",
+			category: "events",
+			content: (<Events />)
 		});
 	}
 });
